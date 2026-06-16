@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel PDG · Región Metropolitana</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f4f3fb;color:#1a1a2e;min-height:100vh}
+.app{padding:1.5rem}
+.topbar{display:flex;align-items:center;gap:12px;margin-bottom:1.5rem;flex-wrap:wrap}
+.logo{background:#534AB7;color:#fff;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0}
+.topbar h1{font-size:18px;font-weight:600;color:#1a1a2e}
+.topbar-sub{font-size:12px;color:#888;margin-top:1px}
+.sync-bar{display:flex;align-items:center;gap:8px;margin-left:auto;flex-wrap:wrap}
+.sync-status{font-size:12px;padding:4px 10px;border-radius:20px;display:flex;align-items:center;gap:5px}
+.sync-ok{background:#E1F5EE;color:#0F6E56}
+.sync-err{background:#FCEBEB;color:#A32D2D}
+.sync-loading{background:#FAEEDA;color:#854F0B}
+.btn{font-size:13px;padding:6px 14px;border-radius:8px;border:1px solid #ddd;cursor:pointer;background:#fff;color:#333;display:flex;align-items:center;gap:5px}
+.btn:hover{background:#f0f0f0}
+.btn-primary{background:#534AB7;color:#fff;border-color:#534AB7}
+.btn-primary:hover{background:#3C3489}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem}
+@media(max-width:600px){.stats-row{grid-template-columns:repeat(2,1fr)}}
+.stat-card{background:#fff;border-radius:10px;padding:14px 16px;border:1px solid #e8e6f8}
+.stat-card .num{font-size:24px;font-weight:600;color:#534AB7}
+.stat-card .lbl{font-size:12px;color:#888;margin-bottom:4px}
+.progress-bar{height:4px;background:#e8e6f8;border-radius:2px;margin-top:8px;overflow:hidden}
+.progress-fill{height:100%;background:#534AB7;border-radius:2px;transition:width 0.5s}
+.legend{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:1rem;font-size:11px;color:#888;align-items:center}
+.legend-item{display:flex;align-items:center;gap:4px}
+.dot{width:11px;height:11px;border-radius:3px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.2rem;align-items:center}
+.filters select,.filters input{font-size:13px;padding:6px 10px;border-radius:8px;border:1px solid #ddd;background:#fff;color:#333;height:34px}
+.filters label{font-size:13px;color:#888}
+.board{display:flex;gap:14px;overflow-x:auto;padding-bottom:1.5rem;align-items:flex-start}
+.district-col{min-width:310px;max-width:330px;flex-shrink:0}
+.dist-header{background:linear-gradient(135deg,#534AB7,#7F77DD);color:#fff;padding:10px 14px;border-radius:10px 10px 0 0;font-size:13px;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.dist-header span{font-size:11px;opacity:0.8}
+.comunas-list{display:flex;flex-direction:column;gap:8px;padding:8px;background:#e8e6f8;border-radius:0 0 10px 10px}
+.comuna-card{background:#fff;border-radius:8px;border:1px solid #e4e2f5;overflow:hidden;transition:box-shadow 0.15s}
+.comuna-card:hover{box-shadow:0 2px 8px rgba(83,74,183,0.1)}
+.comuna-header{padding:9px 12px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.comuna-header:hover{background:#f9f8ff}
+.comuna-name{font-size:13px;font-weight:600;color:#1a1a2e}
+.comuna-meta{display:flex;align-items:center;gap:5px}
+.tag{font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600}
+.tag-count{background:#E6F1FB;color:#185FA5}
+.tag-pdg{background:#EEEDFE;color:#3C3489}
+.chevron{font-size:14px;color:#bbb;transition:transform 0.2s}
+.chevron.open{transform:rotate(90deg)}
+.comuna-body{padding:0 12px 10px;border-top:1px solid #f0eeff;display:none}
+.comuna-body.open{display:block}
+.section-title{font-size:11px;font-weight:600;color:#888;margin:10px 0 6px;text-transform:uppercase;letter-spacing:0.05em;display:flex;justify-content:space-between;align-items:center}
+.person-row{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid #f5f4ff}
+.person-row:last-child{border-bottom:none}
+.person-info{flex:1;min-width:0}
+.person-name{font-size:12px;color:#1a1a2e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.person-role{font-size:10px;color:#aaa}
+.checks{display:flex;gap:4px;align-items:center;flex-shrink:0}
+.check-wrap{display:flex;flex-direction:column;align-items:center;gap:1px}
+.check-label{font-size:9px;color:#ccc}
+.check-box{width:20px;height:20px;border-radius:5px;border:1.5px solid #ddd;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:12px;transition:all 0.15s;flex-shrink:0;background:#fff}
+.check-box:hover{border-color:#534AB7}
+.chk-c{background:#E1F5EE;border-color:#1D9E75;color:#0F6E56}
+.chk-p{background:#EEEDFE;border-color:#7F77DD;color:#534AB7}
+.chk-i{background:#FAEEDA;border-color:#EF9F27;color:#854F0B}
+.chk-del{color:#e24b4a;border-color:#f7c1c1}
+.chk-del:hover{background:#FCEBEB}
+.add-btn{font-size:11px;color:#534AB7;cursor:pointer;padding:2px 7px;border-radius:5px;border:1px dashed #7F77DD;background:none;display:flex;align-items:center;gap:3px;white-space:nowrap}
+.add-btn:hover{background:#EEEDFE}
+.alcalde-row{background:#f9f8ff;border-radius:7px;padding:7px 9px;margin-bottom:6px;display:flex;align-items:center;gap:8px;border:1px solid #e8e6f8}
+.alcalde-avatar{width:30px;height:30px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#534AB7;flex-shrink:0}
+.alcalde-info{flex:1;min-width:0}
+.alcalde-name{font-size:12px;font-weight:600;color:#1a1a2e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.alcalde-partido{font-size:10px;color:#aaa}
+.empty-note{font-size:11px;color:#bbb;padding:5px 0;font-style:italic}
+/* Modal */
+.modal-bg{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(26,26,46,0.5);z-index:1000;align-items:center;justify-content:center}
+.modal-bg.open{display:flex}
+.modal{background:#fff;border-radius:14px;padding:22px;width:360px;box-shadow:0 10px 40px rgba(0,0,0,0.15)}
+.modal h2{font-size:16px;font-weight:600;margin-bottom:16px;color:#1a1a2e}
+.modal input,.modal select{width:100%;margin-bottom:10px;font-size:13px;padding:8px 11px;border-radius:8px;border:1px solid #ddd;background:#fff;color:#333}
+.modal input:focus,.modal select:focus{outline:none;border-color:#534AB7}
+.modal-btns{display:flex;gap:8px;justify-content:flex-end;margin-top:6px}
+/* Toast */
+.toast{position:fixed;bottom:20px;right:20px;background:#534AB7;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;display:none;z-index:2000;box-shadow:0 4px 12px rgba(83,74,183,0.3)}
+.toast.show{display:block;animation:fadeIn 0.3s}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(83,74,183,0.2);border-top-color:#534AB7;border-radius:50%;animation:spin 0.7s linear infinite;vertical-align:-2px}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="topbar">
+    <div class="logo">PDG</div>
+    <div>
+      <h1>Panel PDG · Región Metropolitana</h1>
+      <div class="topbar-sub">Alcaldes electos 2024 · Gestión por distrito</div>
+    </div>
+    <div class="sync-bar">
+      <div class="sync-status sync-loading" id="syncStatus"><span class="spinner"></span> Conectando...</div>
+      <button class="btn" onclick="loadData()"><i class="ti ti-refresh"></i> Actualizar</button>
+      <button class="btn btn-primary" onclick="exportData()"><i class="ti ti-download"></i> Exportar</button>
+    </div>
+  </div>
+
+  <div class="stats-row" id="statsRow">
+    <div class="stat-card"><div class="lbl">Comunas RM</div><div class="num">52</div></div>
+    <div class="stat-card"><div class="lbl">Personas</div><div class="num">—</div></div>
+    <div class="stat-card"><div class="lbl">Contactados</div><div class="num">—</div></div>
+    <div class="stat-card"><div class="lbl">PDG / Interesados</div><div class="num">—</div></div>
+  </div>
+
+  <div class="legend">
+    <span>Checks:</span>
+    <span class="legend-item"><span class="dot" style="background:#1D9E75"></span> Contactado</span>
+    <span class="legend-item"><span class="dot" style="background:#7F77DD"></span> Es PDG</span>
+    <span class="legend-item"><span class="dot" style="background:#EF9F27"></span> Interesado</span>
+  </div>
+
+  <div class="filters">
+    <label>Distrito:</label>
+    <select id="filterDist" onchange="renderBoard()">
+      <option value="">Todos</option>
+      <option value="D8">D8</option><option value="D9">D9</option>
+      <option value="D10">D10</option><option value="D11">D11</option>
+      <option value="D12">D12</option><option value="D13">D13</option>
+      <option value="D14">D14</option>
+    </select>
+    <input type="text" id="searchInput" placeholder="Buscar comuna o persona..." oninput="renderBoard()" style="width:220px">
+    <select id="filterStatus" onchange="renderBoard()">
+      <option value="">Todos los estados</option>
+      <option value="sincontactar">Sin contactar</option>
+      <option value="contactados">Contactados</option>
+      <option value="pdg">Es PDG</option>
+      <option value="interesados">Interesados</option>
+    </select>
+  </div>
+
+  <div class="board" id="board"><div style="padding:2rem;color:#aaa;font-size:14px"><span class="spinner"></span> Cargando datos...</div></div>
+</div>
+
+<!-- Modal personas -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <h2 id="modalTitle">Agregar persona</h2>
+    <input type="hidden" id="modalComuna">
+    <input type="hidden" id="modalType">
+    <input type="hidden" id="modalEditIdx">
+    <input type="text" id="modalName" placeholder="Nombre completo">
+    <input type="text" id="modalPartido" placeholder="Partido / coalición">
+    <div class="modal-btns">
+      <button class="btn" onclick="closeModal()">Cancelar</button>
+      <button class="btn btn-primary" onclick="saveModal()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal alcalde -->
+<div class="modal-bg" id="alcaldeBg">
+  <div class="modal">
+    <h2 id="alcaldeTitle">Editar alcalde/sa</h2>
+    <input type="hidden" id="alcaldeComuna">
+    <input type="text" id="alcaldeNombre" placeholder="Nombre completo">
+    <input type="text" id="alcaldePartido" placeholder="Partido / coalición">
+    <div class="modal-btns">
+      <button class="btn" onclick="document.getElementById('alcaldeBg').classList.remove('open')">Cancelar</button>
+      <button class="btn btn-primary" onclick="saveAlcalde()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ⚠️ REEMPLAZA ESTA URL CON LA DE TU WEB APP DESPLEGADA EN APPS SCRIPT
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwxiNuercziQsf2wTLUygesRhb0-DNAAnrypmYQhqWyWNCXhJ-nysa5YrpEDiCbgkn1/exec";
+
+const ALCALDES_INICIALES = {
+  "La Granja":{nombre:"Claudio Eugenio Arriagada Macaya",partido:""},
+  "Macul":{nombre:"Eduardo René Espinoza Gaete",partido:""},
+  "Ñuñoa":{nombre:"Sebastián Sichel Ramírez",partido:""},
+  "Providencia":{nombre:"Jaime Bellolio Avaria",partido:""},
+  "San Joaquín":{nombre:"Cristóbal Amaro Labra Bassa",partido:""},
+  "Santiago":{nombre:"Mario Desbordes Jiménez",partido:""},
+  "La Reina":{nombre:"José Manuel Palacios Parra",partido:""},
+  "Las Condes":{nombre:"Catalina San Martín Cavada",partido:""},
+  "Lo Barnechea":{nombre:"Felipe Alessandri Vergara",partido:""},
+  "Peñalolén":{nombre:"Miguel Andrés Concha Manso",partido:""},
+  "Vitacura":{nombre:"Camila Merino Catalán",partido:""},
+  "La Florida":{nombre:"Daniel Reyes Morales",partido:""},
+  "La Pintana":{nombre:"Claudia Pizarro Peña",partido:""},
+  "Pirque":{nombre:"Jaime Escudero Ramos",partido:""},
+  "Puente Alto":{nombre:"Matías Jair Toledo Herrera",partido:""},
+  "San José de Maipo":{nombre:"Roberto Pérez Catalán",partido:""},
+  "El Bosque":{nombre:"Manuel Francisco Zúñiga Aguilar",partido:""},
+  "La Cisterna":{nombre:"Joel Andrés Olmos Espinoza",partido:""},
+  "Lo Espejo":{nombre:"Javiera Paz Reyes Jara",partido:""},
+  "Pedro Aguirre Cerda":{nombre:"Luis Alberto Astudillo Peiretti",partido:""},
+  "San Miguel":{nombre:"Carol Bown Sepúlveda",partido:""},
+  "San Ramón":{nombre:"Gustavo Toro Quintana",partido:""},
+  "Alhué":{nombre:"Marcela Chamorro Macías",partido:""},
+  "Buin":{nombre:"Miguel Araya Lobos",partido:""},
+  "Calera de Tango":{nombre:"Hortensia Mora Catalán",partido:""},
+  "Curacaví":{nombre:"Christian Hernández Villanueva",partido:""},
+  "El Monte":{nombre:"Zandra Sofía Maulén Jofre",partido:""},
+  "Isla de Maipo":{nombre:"Juan Pablo Olave Cámbara",partido:""},
+  "María Pinto":{nombre:"Jessica Mualim Fajuri",partido:""},
+  "Melipilla":{nombre:"Paula Gárate Rojas",partido:""},
+  "Padre Hurtado":{nombre:"Felipe Muñoz Heredia",partido:""},
+  "Paine":{nombre:"Rodrigo Contreras Gutiérrez",partido:""},
+  "Peñaflor":{nombre:"Rodrigo Cornejo Inostroza",partido:""},
+  "San Bernardo":{nombre:"Christopher Antonio White Bahamondes",partido:""},
+  "San Pedro":{nombre:"Manuel Devia Vilches",partido:""},
+  "Talagante":{nombre:"Sebastián Enrique Rosas Guerrero",partido:""},
+  "Cerrillos":{nombre:"Johnny Yáñez Díaz",partido:""},
+  "Colina":{nombre:"Isabel Valenzuela Ahumada",partido:""},
+  "Estación Central":{nombre:"Felipe Eduardo Muñoz Vallejos",partido:""},
+  "Lampa":{nombre:"Jonathan Opazo Carrasco",partido:""},
+  "Maipú":{nombre:"Tomás Vodanovic Escudero",partido:""},
+  "Pudahuel":{nombre:"Ítalo Andrés Bravo Lizana",partido:""},
+  "Quilicura":{nombre:"Paulina Rebeca Bobadilla Navarrete",partido:""},
+  "Tiltil":{nombre:"César Eugenio Mena Retamal",partido:""},
+  "Cerro Navia":{nombre:"Mauro Tamayo Rozas",partido:""},
+  "Conchalí":{nombre:"René De La Vega Fuentes",partido:""},
+  "Huechuraba":{nombre:"Maximiliano Luksic Lederer",partido:""},
+  "Independencia":{nombre:"Agustín Iglesias Muñoz",partido:""},
+  "Lo Prado":{nombre:"Maximiliano Ríos Galleguillos",partido:""},
+  "Quinta Normal":{nombre:"Karina Andrea Delfino Mussa",partido:""},
+  "Recoleta":{nombre:"Farés Manuel Jadue Leiva",partido:""},
+  "Renca":{nombre:"Claudio Nicolás Castro Salas",partido:""}
+};
+
+const DIST_MAP = {
+  "La Granja":"D10","Macul":"D10","Ñuñoa":"D10","Providencia":"D10","San Joaquín":"D10","Santiago":"D10",
+  "La Reina":"D11","Las Condes":"D11","Lo Barnechea":"D11","Peñalolén":"D11","Vitacura":"D11",
+  "La Florida":"D12","La Pintana":"D12","Pirque":"D12","Puente Alto":"D12","San José de Maipo":"D12",
+  "El Bosque":"D13","La Cisterna":"D13","Lo Espejo":"D13","Pedro Aguirre Cerda":"D13","San Miguel":"D13","San Ramón":"D13",
+  "Alhué":"D14","Buin":"D14","Calera de Tango":"D14","Curacaví":"D14","El Monte":"D14","Isla de Maipo":"D14",
+  "María Pinto":"D14","Melipilla":"D14","Padre Hurtado":"D14","Paine":"D14","Peñaflor":"D14",
+  "San Bernardo":"D14","San Pedro":"D14","Talagante":"D14",
+  "Cerrillos":"D8","Colina":"D8","Estación Central":"D8","Lampa":"D8","Maipú":"D8","Pudahuel":"D8","Quilicura":"D8","Tiltil":"D8",
+  "Cerro Navia":"D9","Conchalí":"D9","Huechuraba":"D9","Independencia":"D9","Lo Prado":"D9","Quinta Normal":"D9","Recoleta":"D9","Renca":"D9"
+};
+const DIST_NAMES={D8:"Distrito 8",D9:"Distrito 9",D10:"Distrito 10",D11:"Distrito 11",D12:"Distrito 12",D13:"Distrito 13",D14:"Distrito 14"};
+
+let data = {};
+let saveTimeout = null;
+
+function setSyncStatus(type, msg) {
+  const el = document.getElementById("syncStatus");
+  el.className = "sync-status sync-" + type;
+  el.innerHTML = type === "loading" ? `<span class="spinner"></span> ${msg}` : msg;
+}
+
+async function loadData() {
+  setSyncStatus("loading", "Actualizando...");
+  try {
+    const res = await fetch(SCRIPT_URL + "?action=getData");
+    const json = await res.json();
+    if (json.ok) {
+      const remoto = json.data || {};
+      Object.keys(ALCALDES_INICIALES).forEach(c => {
+        if (!remoto[c]) remoto[c] = {alcalde:{...ALCALDES_INICIALES[c],pdg:false},candidatos_alcalde:[],concejales:[],candidatos_concejal:[]};
+        else if (!remoto[c].alcalde || !remoto[c].alcalde.nombre) remoto[c].alcalde = {...ALCALDES_INICIALES[c],pdg:false};
+      });
+      data = remoto;
+      setSyncStatus("ok", "✓ Sincronizado");
+      renderBoard();
+      updateStats();
+    } else {
+      throw new Error(json.error || "Error desconocido");
+    }
+  } catch(e) {
+    setSyncStatus("err", "⚠ Sin conexión — modo local");
+    loadLocal();
+  }
+}
+
+function loadLocal() {
+  const saved = localStorage.getItem("pdg_panel_rm");
+  if (saved) try { data = JSON.parse(saved); } catch(e) {}
+  Object.keys(ALCALDES_INICIALES).forEach(c => {
+    if (!data[c]) data[c] = {alcalde:{...ALCALDES_INICIALES[c],pdg:false},candidatos_alcalde:[],concejales:[],candidatos_concejal:[]};
+  });
+  renderBoard();
+  updateStats();
+}
+
+async function saveComuna(comuna) {
+  localStorage.setItem("pdg_panel_rm", JSON.stringify(data));
+  setSyncStatus("loading", "Guardando...");
+  try {
+    const res = await fetch(SCRIPT_URL, {
+      method: "POST",
+      body: JSON.stringify({ action: "updateComuna", comuna, comunaData: data[comuna] })
+    });
+    const json = await res.json();
+    if (json.ok) setSyncStatus("ok", "✓ Guardado");
+    else throw new Error();
+  } catch(e) {
+    setSyncStatus("err", "⚠ Guardado local (sin conexión)");
+  }
+}
+
+function getInitials(n) {
+  if (!n) return "?";
+  const p = n.trim().split(" ");
+  return ((p[0]||"")[0]||"") + ((p[1]||"")[0]||"");
+}
+
+function toggle(c, list, idx, field) {
+  if (data[c] && data[c][list][idx]) data[c][list][idx][field] = !data[c][list][idx][field];
+  renderBoard(); saveComuna(c);
+}
+function toggleAlcaldePDG(c) {
+  if (data[c]) data[c].alcalde.pdg = !data[c].alcalde.pdg;
+  renderBoard(); saveComuna(c);
+}
+
+function openModal(c, type, idx) {
+  idx = idx === undefined ? -1 : idx;
+  document.getElementById("modalBg").classList.add("open");
+  document.getElementById("modalComuna").value = c;
+  document.getElementById("modalType").value = type;
+  document.getElementById("modalEditIdx").value = idx;
+  document.getElementById("modalName").value = "";
+  document.getElementById("modalPartido").value = "";
+  const labels = {candidatos_alcalde:"candidato/a a alcalde",concejales:"concejal/a electo/a",candidatos_concejal:"candidato/a a concejal"};
+  if (idx >= 0 && data[c] && data[c][type][idx]) {
+    document.getElementById("modalName").value = data[c][type][idx].nombre || "";
+    document.getElementById("modalPartido").value = data[c][type][idx].partido || "";
+    document.getElementById("modalTitle").textContent = "Editar " + (labels[type]||"persona");
+  } else {
+    document.getElementById("modalTitle").textContent = "Agregar " + (labels[type]||"persona");
+  }
+  setTimeout(() => document.getElementById("modalName").focus(), 100);
+}
+function closeModal() { document.getElementById("modalBg").classList.remove("open"); }
+
+function saveModal() {
+  const c = document.getElementById("modalComuna").value;
+  const type = document.getElementById("modalType").value;
+  const idx = parseInt(document.getElementById("modalEditIdx").value);
+  const nombre = document.getElementById("modalName").value.trim();
+  const partido = document.getElementById("modalPartido").value.trim();
+  if (!nombre) return;
+  if (!data[c]) data[c] = {alcalde:{nombre:"",partido:"",pdg:false},candidatos_alcalde:[],concejales:[],candidatos_concejal:[]};
+  if (idx >= 0 && data[c][type][idx]) {
+    data[c][type][idx].nombre = nombre;
+    data[c][type][idx].partido = partido;
+  } else {
+    data[c][type].push({nombre,partido,contactado:false,pdg:false,interesado:false});
+  }
+  closeModal(); renderBoard(); saveComuna(c); showToast("Guardado ✓");
+}
+
+function openAlcaldeModal(c) {
+  document.getElementById("alcaldeBg").classList.add("open");
+  document.getElementById("alcaldeComuna").value = c;
+  document.getElementById("alcaldeTitle").textContent = "Editar alcalde/sa · " + c;
+  document.getElementById("alcaldeNombre").value = data[c] ? data[c].alcalde.nombre : "";
+  document.getElementById("alcaldePartido").value = data[c] ? data[c].alcalde.partido : "";
+  setTimeout(() => document.getElementById("alcaldeNombre").focus(), 100);
+}
+function saveAlcalde() {
+  const c = document.getElementById("alcaldeComuna").value;
+  const n = document.getElementById("alcaldeNombre").value.trim();
+  const p = document.getElementById("alcaldePartido").value.trim();
+  if (!data[c]) data[c] = {alcalde:{nombre:"",partido:"",pdg:false},candidatos_alcalde:[],concejales:[],candidatos_concejal:[]};
+  data[c].alcalde.nombre = n; data[c].alcalde.partido = p;
+  document.getElementById("alcaldeBg").classList.remove("open");
+  renderBoard(); saveComuna(c); showToast("Alcalde actualizado ✓");
+}
+
+function deletePerson(c, type, idx) {
+  if (confirm("¿Eliminar esta persona?")) {
+    data[c][type].splice(idx, 1);
+    renderBoard(); saveComuna(c);
+  }
+}
+
+function exportData() {
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "pdg_panel_rm_" + new Date().toISOString().slice(0,10) + ".json";
+  a.click();
+  showToast("Archivo exportado ✓");
+}
+
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2500);
+}
+
+function updateStats() {
+  let totalP=0,totalC=0,totalPDG=0,totalI=0;
+  Object.keys(data).forEach(c => {
+    const d = data[c];
+    [...(d.candidatos_alcalde||[]),...(d.concejales||[]),...(d.candidatos_concejal||[])].forEach(p => {
+      totalP++; if(p.contactado)totalC++; if(p.pdg)totalPDG++; if(p.interesado)totalI++;
+    });
+  });
+  const pct = totalP > 0 ? Math.round(totalC/totalP*100) : 0;
+  document.getElementById("statsRow").innerHTML = `
+    <div class="stat-card"><div class="lbl">Comunas RM</div><div class="num" style="color:#534AB7">52</div></div>
+    <div class="stat-card"><div class="lbl">Personas registradas</div><div class="num" style="color:#534AB7">${totalP}</div></div>
+    <div class="stat-card"><div class="lbl">Contactados</div><div class="num" style="color:#1D9E75">${totalC} <span style="font-size:14px;color:#aaa">${pct}%</span></div><div class="progress-bar"><div class="progress-fill" style="width:${pct}%;background:#1D9E75"></div></div></div>
+    <div class="stat-card"><div class="lbl">PDG / Interesados</div><div class="num" style="color:#534AB7">${totalPDG} <span style="font-size:16px;color:#aaa">/</span> <span style="color:#EF9F27">${totalI}</span></div></div>
+  `;
+}
+
+function toggleCard(id, header) {
+  const body = document.getElementById(id);
+  const chev = header.querySelector(".chevron");
+  if (!body) return;
+  body.classList.toggle("open"); chev.classList.toggle("open");
+}
+
+function renderBoard() {
+  const fd = document.getElementById("filterDist").value;
+  const search = document.getElementById("searchInput").value.toLowerCase();
+  const status = document.getElementById("filterStatus").value;
+  const grouped = {};
+  Object.keys(DIST_MAP).forEach(c => {
+    const dist = DIST_MAP[c];
+    if (fd && dist !== fd) return;
+    const d = data[c] || {alcalde:{},candidatos_alcalde:[],concejales:[],candidatos_concejal:[]};
+    const allP = [...(d.candidatos_alcalde||[]),...(d.concejales||[]),...(d.candidatos_concejal||[])];
+    if (search) {
+      const alcNm = (d.alcalde&&d.alcalde.nombre||"").toLowerCase();
+      const match = c.toLowerCase().includes(search) || alcNm.includes(search) || allP.some(p=>p.nombre.toLowerCase().includes(search));
+      if (!match) return;
+    }
+    if (status === "sincontactar" && allP.length > 0 && allP.every(p=>p.contactado)) return;
+    if (status === "contactados" && !allP.some(p=>p.contactado)) return;
+    if (status === "pdg" && !allP.some(p=>p.pdg)) return;
+    if (status === "interesados" && !allP.some(p=>p.interesado)) return;
+    if (!grouped[dist]) grouped[dist] = [];
+    grouped[dist].push(c);
+  });
+
+  const board = document.getElementById("board");
+  board.innerHTML = "";
+  const distKeys = Object.keys(grouped).sort();
+  if (!distKeys.length) { board.innerHTML = `<div style="padding:2rem;color:#aaa;font-size:14px">Sin resultados para ese filtro.</div>`; return; }
+
+  distKeys.forEach(dk => {
+    const comunas = grouped[dk].sort();
+    const col = document.createElement("div");
+    col.className = "district-col";
+    col.innerHTML = `<div class="dist-header">${DIST_NAMES[dk]||dk} <span>${dk} · ${comunas.length} comunas</span></div><div class="comunas-list" id="list_${dk}"></div>`;
+    board.appendChild(col);
+    const list = col.querySelector(`#list_${dk}`);
+
+    comunas.forEach(c => {
+      const d = data[c] || {alcalde:{nombre:"",partido:"",pdg:false},candidatos_alcalde:[],concejales:[],candidatos_concejal:[]};
+      const allP = [...(d.candidatos_alcalde||[]),...(d.concejales||[]),...(d.candidatos_concejal||[])];
+      const contactC = allP.filter(p=>p.contactado).length;
+      const pdgC = allP.filter(p=>p.pdg).length;
+      const sid = "b" + c.replace(/[^a-zA-Z0-9]/g,"_");
+      const alcNombre = d.alcalde&&d.alcalde.nombre ? d.alcalde.nombre : "Sin registrar";
+      const alcPartido = d.alcalde&&d.alcalde.partido || "";
+      const alcPDG = d.alcalde&&d.alcalde.pdg;
+      const initials = getInitials(alcNombre);
+
+      const mkRow = (p, i, type) => `
+        <div class="person-row">
+          <div class="person-info">
+            <div class="person-name" title="${p.nombre}">${p.nombre}</div>
+            <div class="person-role">${p.partido||'—'}</div>
+          </div>
+          <div class="checks">
+            <div class="check-wrap"><span class="check-label">Cont.</span><div class="check-box ${p.contactado?'chk-c':''}" onclick="toggle('${c}','${type}',${i},'contactado')" title="Contactado">${p.contactado?'✓':''}</div></div>
+            <div class="check-wrap"><span class="check-label">PDG</span><div class="check-box ${p.pdg?'chk-p':''}" onclick="toggle('${c}','${type}',${i},'pdg')" title="Es PDG">${p.pdg?'✓':''}</div></div>
+            <div class="check-wrap"><span class="check-label">Inter.</span><div class="check-box ${p.interesado?'chk-i':''}" onclick="toggle('${c}','${type}',${i},'interesado')" title="Interesado">${p.interesado?'✓':''}</div></div>
+            <div class="check-box chk-del" onclick="deletePerson('${c}','${type}',${i})" title="Eliminar">✕</div>
+          </div>
+        </div>`;
+
+      const card = document.createElement("div");
+      card.className = "comuna-card";
+      card.innerHTML = `
+        <div class="comuna-header" onclick="toggleCard('${sid}',this)">
+          <span class="comuna-name">${c}</span>
+          <div class="comuna-meta">
+            ${allP.length>0?`<span class="tag tag-count">${contactC}/${allP.length}</span>`:''}
+            ${pdgC>0?`<span class="tag tag-pdg">PDG: ${pdgC}</span>`:''}
+            <i class="ti ti-chevron-right chevron"></i>
+          </div>
+        </div>
+        <div class="comuna-body" id="${sid}">
+          <div style="margin-top:10px">
+            <div class="section-title">
+              <span>👑 Alcalde/sa electo/a</span>
+              <button class="add-btn" onclick="openAlcaldeModal('${c}')">✎ editar</button>
+            </div>
+            <div class="alcalde-row">
+              <div class="alcalde-avatar">${initials}</div>
+              <div class="alcalde-info">
+                <div class="alcalde-name">${alcNombre}</div>
+                <div class="alcalde-partido">${alcPartido||'Partido no registrado'}</div>
+              </div>
+              <div class="checks">
+                <div class="check-wrap">
+                  <span class="check-label">PDG</span>
+                  <div class="check-box ${alcPDG?'chk-p':''}" onclick="toggleAlcaldePDG('${c}')" title="¿Es PDG?">${alcPDG?'✓':''}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:4px">
+            <div class="section-title"><span>⭐ Candidatos/as a alcalde</span><button class="add-btn" onclick="openModal('${c}','candidatos_alcalde')">+ agregar</button></div>
+            ${(d.candidatos_alcalde||[]).map((p,i)=>mkRow(p,i,'candidatos_alcalde')).join("")||`<div class="empty-note">Sin candidatos registrados</div>`}
+          </div>
+          <div style="margin-top:4px">
+            <div class="section-title"><span>👥 Concejales/as electos/as</span><button class="add-btn" onclick="openModal('${c}','concejales')">+ agregar</button></div>
+            ${(d.concejales||[]).map((p,i)=>mkRow(p,i,'concejales')).join("")||`<div class="empty-note">Sin concejales registrados</div>`}
+          </div>
+          <div style="margin-top:4px">
+            <div class="section-title"><span>➕ Candidatos/as a concejal</span><button class="add-btn" onclick="openModal('${c}','candidatos_concejal')">+ agregar</button></div>
+            ${(d.candidatos_concejal||[]).map((p,i)=>mkRow(p,i,'candidatos_concejal')).join("")||`<div class="empty-note">Sin candidatos a concejal</div>`}
+          </div>
+        </div>`;
+      list.appendChild(card);
+    });
+  });
+  updateStats();
+}
+
+// Enter en modales
+document.addEventListener("keydown", e => {
+  if (e.key === "Enter") {
+    if (document.getElementById("modalBg").classList.contains("open")) saveModal();
+    if (document.getElementById("alcaldeBg").classList.contains("open")) saveAlcalde();
+  }
+  if (e.key === "Escape") {
+    closeModal();
+    document.getElementById("alcaldeBg").classList.remove("open");
+  }
+});
+
+// Auto-refresh cada 60 segundos
+setInterval(loadData, 60000);
+
+// Inicio
+loadData();
+</script>
+</body>
+</html>
