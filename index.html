@@ -9,27 +9,32 @@
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f4f3fb;color:#1a1a2e;min-height:100vh}
 
 /* LOGIN */
-.login-screen{position:fixed;inset:0;background:linear-gradient(135deg,#1a1a2e,#534AB7);display:flex;align-items:center;justify-content:center;z-index:9999}
-.login-box{background:#fff;border-radius:16px;padding:36px 32px;width:340px;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
-.login-logo{width:48px;height:48px;background:#534AB7;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:#fff;margin:0 auto 16px}
-.login-title{text-align:center;font-size:20px;font-weight:600;color:#1a1a2e;margin-bottom:4px}
-.login-sub{text-align:center;font-size:12px;color:#aaa;margin-bottom:24px}
+.login-screen{position:fixed;inset:0;background:linear-gradient(135deg,#0a0a1a,#1a1560,#2d2580);display:flex;align-items:center;justify-content:center;z-index:9999}
+.login-box{background:#fff;border-radius:18px;padding:36px 32px;width:360px;box-shadow:0 24px 64px rgba(0,0,0,0.35)}
+.login-logo-wrap{display:flex;flex-direction:column;align-items:center;margin-bottom:20px}
+.prysma-logo{font-size:26px;font-weight:900;letter-spacing:-1px;color:#1a1560}
+.prysma-logo span{color:#C8A84B}
+.prysma-sub{font-size:10px;color:#aaa;letter-spacing:2px;text-transform:uppercase;margin-top:2px}
+.login-divider{width:40px;height:3px;background:linear-gradient(90deg,#1a1560,#C8A84B);border-radius:2px;margin:12px auto}
+.login-title{text-align:center;font-size:17px;font-weight:600;color:#1a1a2e;margin-bottom:4px}
+.login-sub{text-align:center;font-size:12px;color:#aaa;margin-bottom:22px}
 .login-input{width:100%;padding:10px 14px;border-radius:8px;border:1.5px solid #e0e0e0;font-size:14px;margin-bottom:12px;color:#1a1a2e;transition:border 0.2s}
-.login-input:focus{outline:none;border-color:#534AB7}
-.login-btn{width:100%;padding:11px;background:#534AB7;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;margin-top:4px;transition:background 0.2s}
-.login-btn:hover{background:#3C3489}
+.login-input:focus{outline:none;border-color:#1a1560}
+.login-btn{width:100%;padding:11px;background:linear-gradient(135deg,#1a1560,#2d2580);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:opacity 0.2s}
+.login-btn:hover{opacity:0.9}
 .login-error{color:#E24B4A;font-size:12px;text-align:center;margin-top:8px;min-height:18px}
-.login-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;padding:4px 10px;border-radius:20px;margin:0 auto 16px;display:flex;width:fit-content}
-.badge-editor{background:#E1F5EE;color:#0F6E56}
-.badge-visitante{background:#EEEDFE;color:#3C3489}
 
 /* APP */
-.app{padding:1.5rem;display:none}
+.app{padding:1.2rem 1.5rem;display:none}
 .app.visible{display:block}
-.topbar{display:flex;align-items:center;gap:12px;margin-bottom:1.5rem;flex-wrap:wrap}
-.logo{background:#534AB7;color:#fff;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0}
-.topbar h1{font-size:18px;font-weight:600;color:#1a1a2e}
-.topbar-sub{font-size:12px;color:#888;margin-top:1px}
+.topbar{display:flex;align-items:center;gap:14px;margin-bottom:1.4rem;flex-wrap:wrap;background:#fff;padding:12px 18px;border-radius:12px;border:1px solid #e8e6f8;box-shadow:0 2px 8px rgba(83,74,183,0.06)}
+.prysma-top{display:flex;flex-direction:column}
+.prysma-top-logo{font-size:20px;font-weight:900;letter-spacing:-0.5px;color:#1a1560}
+.prysma-top-logo span{color:#C8A84B}
+.prysma-top-sub{font-size:10px;color:#aaa;letter-spacing:1.5px;text-transform:uppercase}
+.topbar-divider{width:1px;height:36px;background:#e8e6f8}
+.topbar-title{font-size:16px;font-weight:600;color:#1a1a2e}
+.topbar-subtitle{font-size:11px;color:#aaa;margin-top:2px}
 .sync-bar{display:flex;align-items:center;gap:8px;margin-left:auto;flex-wrap:wrap}
 .role-badge{font-size:11px;padding:4px 10px;border-radius:20px;font-weight:600}
 .role-editor{background:#E1F5EE;color:#0F6E56}
@@ -38,80 +43,103 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .sync-ok{background:#E1F5EE;color:#0F6E56}
 .sync-err{background:#FCEBEB;color:#A32D2D}
 .sync-loading{background:#FAEEDA;color:#854F0B}
-.btn{font-size:13px;padding:6px 14px;border-radius:8px;border:1px solid #ddd;cursor:pointer;background:#fff;color:#333;display:flex;align-items:center;gap:5px}
+.btn{font-size:13px;padding:6px 14px;border-radius:8px;border:1px solid #ddd;cursor:pointer;background:#fff;color:#333;display:flex;align-items:center;gap:5px;white-space:nowrap}
 .btn:hover{background:#f0f0f0}
+.btn-primary{background:#1a1560;color:#fff;border-color:#1a1560}
+.btn-primary:hover{background:#0d0c3a}
 .btn-logout{background:#FCEBEB;color:#A32D2D;border-color:#f7c1c1}
 .btn-logout:hover{background:#fadadd}
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem}
-@media(max-width:600px){.stats-row{grid-template-columns:repeat(2,1fr)}}
-.stat-card{background:#fff;border-radius:10px;padding:14px 16px;border:1px solid #e8e6f8}
-.stat-card .num{font-size:24px;font-weight:600}
-.stat-card .lbl{font-size:12px;color:#888;margin-bottom:4px}
-.progress-bar{height:4px;background:#e8e6f8;border-radius:2px;margin-top:8px;overflow:hidden}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:1.4rem}
+@media(max-width:700px){.stats-row{grid-template-columns:repeat(2,1fr)}}
+.stat-card{background:#fff;border-radius:10px;padding:12px 14px;border:1px solid #e8e6f8}
+.stat-card .num{font-size:22px;font-weight:700}
+.stat-card .lbl{font-size:11px;color:#aaa;margin-bottom:3px}
+.progress-bar{height:3px;background:#e8e6f8;border-radius:2px;margin-top:6px;overflow:hidden}
 .progress-fill{height:100%;border-radius:2px;transition:width 0.5s}
-.legend{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:1rem;font-size:11px;color:#888;align-items:center}
+
+/* FILTERS */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.2rem;align-items:center;background:#fff;padding:10px 14px;border-radius:10px;border:1px solid #e8e6f8}
+.filters select,.filters input{font-size:13px;padding:5px 9px;border-radius:7px;border:1px solid #ddd;background:#fff;color:#333;height:32px}
+.filters label{font-size:12px;color:#aaa;font-weight:500}
+
+/* LEGEND */
+.legend{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:1rem;font-size:11px;color:#aaa;align-items:center}
 .legend-item{display:flex;align-items:center;gap:4px}
-.dot{width:11px;height:11px;border-radius:3px}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.2rem;align-items:center}
-.filters select,.filters input{font-size:13px;padding:6px 10px;border-radius:8px;border:1px solid #ddd;background:#fff;color:#333;height:34px}
+.dot{width:10px;height:10px;border-radius:3px}
+
+/* BOARD */
 .board{display:flex;gap:14px;overflow-x:auto;padding-bottom:1.5rem;align-items:flex-start}
-.district-col{min-width:310px;max-width:330px;flex-shrink:0}
-.dist-header{background:linear-gradient(135deg,#534AB7,#7F77DD);color:#fff;padding:10px 14px;border-radius:10px 10px 0 0;font-size:13px;font-weight:600;display:flex;justify-content:space-between;align-items:center}
-.dist-header span{font-size:11px;opacity:0.8}
-.comunas-list{display:flex;flex-direction:column;gap:8px;padding:8px;background:#e8e6f8;border-radius:0 0 10px 10px}
+.district-col{min-width:320px;max-width:340px;flex-shrink:0}
+.dist-header{background:linear-gradient(135deg,#1a1560,#3730a3);color:#fff;padding:10px 14px;border-radius:10px 10px 0 0;font-size:13px;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.dist-header span{font-size:11px;opacity:0.75}
+.comunas-list{display:flex;flex-direction:column;gap:8px;padding:8px;background:#ddd9f5;border-radius:0 0 10px 10px}
 .comuna-card{background:#fff;border-radius:8px;border:1px solid #e4e2f5;overflow:hidden;transition:box-shadow 0.15s}
-.comuna-card:hover{box-shadow:0 2px 8px rgba(83,74,183,0.1)}
+.comuna-card:hover{box-shadow:0 2px 10px rgba(26,21,96,0.1)}
 .comuna-header{padding:9px 12px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:8px}
 .comuna-header:hover{background:#f9f8ff}
 .comuna-name{font-size:13px;font-weight:600;color:#1a1a2e}
-.comuna-meta{display:flex;align-items:center;gap:5px}
-.tag{font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600}
+.comuna-meta{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.tag{font-size:10px;padding:2px 6px;border-radius:10px;font-weight:600}
 .tag-count{background:#E6F1FB;color:#185FA5}
 .tag-pdg{background:#EEEDFE;color:#3C3489}
-.chevron{font-size:14px;color:#bbb;transition:transform 0.2s}
+.chevron{font-size:16px;color:#bbb;transition:transform 0.2s;flex-shrink:0}
 .chevron.open{transform:rotate(90deg)}
 .comuna-body{padding:0 12px 10px;border-top:1px solid #f0eeff;display:none}
 .comuna-body.open{display:block}
-.section-title{font-size:11px;font-weight:600;color:#888;margin:10px 0 6px;text-transform:uppercase;letter-spacing:0.05em;display:flex;justify-content:space-between;align-items:center}
-.person-row{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid #f5f4ff}
+.section-title{font-size:10px;font-weight:700;color:#aaa;margin:10px 0 5px;text-transform:uppercase;letter-spacing:0.06em;display:flex;justify-content:space-between;align-items:center}
+
+/* PERSON ROW */
+.person-row{display:flex;align-items:center;gap:6px;padding:5px 0;border-bottom:1px solid #f5f4ff}
 .person-row:last-child{border-bottom:none}
 .person-info{flex:1;min-width:0}
-.person-name{font-size:12px;color:#1a1a2e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.person-role{font-size:10px;color:#aaa}
-.checks{display:flex;gap:4px;align-items:center;flex-shrink:0}
+.person-name{font-size:12px;color:#1a1a2e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500}
+.person-meta{font-size:10px;color:#aaa;display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:1px}
+.person-votos{background:#f0f0ff;color:#534AB7;padding:1px 5px;border-radius:4px;font-weight:600;font-size:10px}
+.person-periodo{background:#f0fdf4;color:#166534;padding:1px 5px;border-radius:4px;font-size:10px}
+.checks{display:flex;gap:3px;align-items:center;flex-shrink:0}
 .check-wrap{display:flex;flex-direction:column;align-items:center;gap:1px}
-.check-label{font-size:9px;color:#ccc}
-.check-box{width:20px;height:20px;border-radius:5px;border:1.5px solid #ddd;display:flex;align-items:center;justify-content:center;font-size:12px;transition:all 0.15s;flex-shrink:0;background:#fff}
+.check-label{font-size:8px;color:#ccc}
+.check-box{width:19px;height:19px;border-radius:4px;border:1.5px solid #ddd;display:flex;align-items:center;justify-content:center;font-size:11px;transition:all 0.15s;flex-shrink:0;background:#fff}
 .check-box.clickable{cursor:pointer}
-.check-box.clickable:hover{border-color:#534AB7}
+.check-box.clickable:hover{border-color:#1a1560}
 .check-box.readonly{cursor:default;opacity:0.8}
 .chk-c{background:#E1F5EE;border-color:#1D9E75;color:#0F6E56}
 .chk-p{background:#EEEDFE;border-color:#7F77DD;color:#534AB7}
 .chk-i{background:#FAEEDA;border-color:#EF9F27;color:#854F0B}
+.chk-n{background:#FCEBEB;border-color:#E24B4A;color:#A32D2D}
+.chk-edit{color:#1a1560;border-color:#c5c3e8;cursor:pointer;font-size:12px}
+.chk-edit:hover{background:#EEEDFE}
 .chk-del{color:#e24b4a;border-color:#f7c1c1;cursor:pointer}
 .chk-del:hover{background:#FCEBEB}
-.add-btn{font-size:11px;color:#534AB7;cursor:pointer;padding:2px 7px;border-radius:5px;border:1px dashed #7F77DD;background:none;display:flex;align-items:center;gap:3px;white-space:nowrap}
+.add-btn{font-size:11px;color:#1a1560;cursor:pointer;padding:2px 7px;border-radius:5px;border:1px dashed #9893d8;background:none;display:flex;align-items:center;gap:3px;white-space:nowrap}
 .add-btn:hover{background:#EEEDFE}
+
+/* ALCALDE */
 .alcalde-row{background:#f9f8ff;border-radius:7px;padding:7px 9px;margin-bottom:6px;display:flex;align-items:center;gap:8px;border:1px solid #e8e6f8}
-.alcalde-avatar{width:30px;height:30px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#534AB7;flex-shrink:0}
+.alcalde-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#1a1560,#C8A84B);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0}
 .alcalde-info{flex:1;min-width:0}
 .alcalde-name{font-size:12px;font-weight:600;color:#1a1a2e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.alcalde-partido{font-size:10px;color:#aaa}
+.alcalde-meta{font-size:10px;color:#aaa;display:flex;gap:6px;margin-top:1px;flex-wrap:wrap}
 .empty-note{font-size:11px;color:#bbb;padding:5px 0;font-style:italic}
-.readonly-note{font-size:10px;color:#aaa;background:#f9f8ff;border-radius:6px;padding:4px 8px;margin-top:6px;text-align:center}
+.readonly-note{font-size:10px;color:#aaa;background:#f9f8ff;border-radius:6px;padding:4px 8px;margin-top:8px;text-align:center;border:1px dashed #e0deff}
 
-/* Modal */
-.modal-bg{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(26,26,46,0.5);z-index:1000;align-items:center;justify-content:center}
+/* MODAL */
+.modal-bg{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,26,0.55);z-index:1000;align-items:center;justify-content:center}
 .modal-bg.open{display:flex}
-.modal{background:#fff;border-radius:14px;padding:22px;width:360px;box-shadow:0 10px 40px rgba(0,0,0,0.15)}
-.modal h2{font-size:16px;font-weight:600;margin-bottom:16px;color:#1a1a2e}
-.modal input,.modal select{width:100%;margin-bottom:10px;font-size:13px;padding:8px 11px;border-radius:8px;border:1px solid #ddd;background:#fff;color:#333}
-.modal input:focus,.modal select:focus{outline:none;border-color:#534AB7}
-.modal-btns{display:flex;gap:8px;justify-content:flex-end;margin-top:6px}
-.toast{position:fixed;bottom:20px;right:20px;background:#534AB7;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;display:none;z-index:2000;box-shadow:0 4px 12px rgba(83,74,183,0.3)}
+.modal{background:#fff;border-radius:14px;padding:22px;width:380px;box-shadow:0 12px 48px rgba(0,0,0,0.18);max-height:90vh;overflow-y:auto}
+.modal h2{font-size:15px;font-weight:600;margin-bottom:14px;color:#1a1a2e}
+.modal-field{margin-bottom:10px}
+.modal-label{font-size:11px;color:#aaa;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;display:block}
+.modal input,.modal select,.modal textarea{width:100%;font-size:13px;padding:8px 11px;border-radius:8px;border:1.5px solid #ddd;background:#fff;color:#333;transition:border 0.2s}
+.modal input:focus,.modal select:focus{outline:none;border-color:#1a1560}
+.modal-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.modal-btns{display:flex;gap:8px;justify-content:flex-end;margin-top:14px}
+.toast{position:fixed;bottom:20px;right:20px;background:#1a1560;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;display:none;z-index:2000;box-shadow:0 4px 16px rgba(26,21,96,0.3)}
 .toast.show{display:block;animation:fadeIn 0.3s}
 @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(83,74,183,0.2);border-top-color:#534AB7;border-radius:50%;animation:spin 0.7s linear infinite;vertical-align:-2px}
+.spinner{display:inline-block;width:13px;height:13px;border:2px solid rgba(26,21,96,0.15);border-top-color:#1a1560;border-radius:50%;animation:spin 0.7s linear infinite;vertical-align:-2px}
 @keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
@@ -120,10 +148,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <!-- LOGIN -->
 <div class="login-screen" id="loginScreen">
   <div class="login-box">
-    <div class="login-logo">PDG</div>
-    <div class="login-title">Panel PDG · RM</div>
-    <div class="login-sub">Gestión electoral Región Metropolitana 2024</div>
-    <input type="password" class="login-input" id="loginPass" placeholder="Ingresa tu contraseña..." onkeydown="if(event.key==='Enter')doLogin()">
+    <div class="login-logo-wrap">
+      <div class="prysma-logo">PRY<span>SMA</span></div>
+      <div class="prysma-sub">Consultoría Política</div>
+    </div>
+    <div class="login-divider"></div>
+    <div class="login-title">Panel Electoral PDG · RM</div>
+    <div class="login-sub">Gestión territorial Región Metropolitana 2024</div>
+    <input type="password" class="login-input" id="loginPass" placeholder="Contraseña de acceso..." onkeydown="if(event.key==='Enter')doLogin()">
     <button class="login-btn" onclick="doLogin()">Ingresar →</button>
     <div class="login-error" id="loginError"></div>
   </div>
@@ -132,10 +164,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <!-- APP -->
 <div class="app" id="mainApp">
   <div class="topbar">
-    <div class="logo">PDG</div>
+    <div class="prysma-top">
+      <div class="prysma-top-logo">PRY<span>SMA</span></div>
+      <div class="prysma-top-sub">Consultoría Política</div>
+    </div>
+    <div class="topbar-divider"></div>
     <div>
-      <h1>Panel PDG · Región Metropolitana</h1>
-      <div class="topbar-sub">Alcaldes y concejales electos 2024 · Gestión por distrito</div>
+      <div class="topbar-title">Panel Electoral PDG · Región Metropolitana</div>
+      <div class="topbar-subtitle">Alcaldes y concejales electos 2024 · Gestión por distrito</div>
     </div>
     <div class="sync-bar">
       <span class="role-badge" id="roleBadge"></span>
@@ -152,10 +188,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <span class="legend-item"><span class="dot" style="background:#1D9E75"></span> Contactado</span>
     <span class="legend-item"><span class="dot" style="background:#7F77DD"></span> Es PDG</span>
     <span class="legend-item"><span class="dot" style="background:#EF9F27"></span> Interesado</span>
+    <span class="legend-item"><span class="dot" style="background:#E24B4A"></span> No interesado</span>
   </div>
 
   <div class="filters">
-    <label style="font-size:13px;color:#888">Distrito:</label>
+    <label>Distrito:</label>
     <select id="filterDist" onchange="renderBoard()">
       <option value="">Todos</option>
       <option value="D8">D8</option><option value="D9">D9</option>
@@ -163,41 +200,108 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <option value="D12">D12</option><option value="D13">D13</option>
       <option value="D14">D14</option>
     </select>
-    <input type="text" id="searchInput" placeholder="Buscar comuna o persona..." oninput="renderBoard()" style="width:220px">
+    <input type="text" id="searchInput" placeholder="Buscar comuna o persona..." oninput="renderBoard()" style="width:210px">
     <select id="filterStatus" onchange="renderBoard()">
       <option value="">Todos los estados</option>
       <option value="sincontactar">Sin contactar</option>
       <option value="contactados">Contactados</option>
       <option value="pdg">Es PDG</option>
       <option value="interesados">Interesados</option>
+      <option value="nointeresados">No interesados</option>
+    </select>
+    <select id="filterPeriodo" onchange="renderBoard()">
+      <option value="">Todos los periodos</option>
+      <option value="1er periodo">1er periodo</option>
+      <option value="2do periodo">2do periodo</option>
+      <option value="3er periodo">3er periodo</option>
+      <option value="4to periodo">4to periodo</option>
+      <option value="Nuevo">Nuevo electo</option>
     </select>
   </div>
 
   <div class="board" id="board"><div style="padding:2rem;color:#aaa;font-size:14px"><span class="spinner"></span> Cargando datos...</div></div>
 </div>
 
-<!-- Modales (solo visibles para editores) -->
+<!-- MODAL PERSONA -->
 <div class="modal-bg" id="modalBg">
   <div class="modal">
     <h2 id="modalTitle">Agregar persona</h2>
-    <input type="hidden" id="modalComuna"><input type="hidden" id="modalType"><input type="hidden" id="modalEditIdx">
-    <input type="text" id="modalName" placeholder="Nombre completo">
-    <input type="text" id="modalPartido" placeholder="Partido / coalición">
+    <input type="hidden" id="modalComuna">
+    <input type="hidden" id="modalType">
+    <input type="hidden" id="modalEditIdx">
+    <div class="modal-field">
+      <label class="modal-label">Nombre completo</label>
+      <input type="text" id="modalName" placeholder="Ej: Juan Pérez González">
+    </div>
+    <div class="modal-field">
+      <label class="modal-label">Partido / Coalición</label>
+      <input type="text" id="modalPartido" placeholder="Ej: Chile Mucho Mejor">
+    </div>
+    <div class="modal-row">
+      <div class="modal-field">
+        <label class="modal-label">Votos obtenidos</label>
+        <input type="number" id="modalVotos" placeholder="Ej: 3420" min="0">
+      </div>
+      <div class="modal-field">
+        <label class="modal-label">Periodo en el cargo</label>
+        <select id="modalPeriodo">
+          <option value="">Sin especificar</option>
+          <option value="Nuevo">Nuevo electo</option>
+          <option value="1er periodo">1er periodo</option>
+          <option value="2do periodo">2do periodo</option>
+          <option value="3er periodo">3er periodo</option>
+          <option value="4to periodo">4to periodo</option>
+        </select>
+      </div>
+    </div>
+    <div class="modal-field">
+      <label class="modal-label">Notas / Observaciones</label>
+      <input type="text" id="modalNotas" placeholder="Información adicional...">
+    </div>
     <div class="modal-btns">
       <button class="btn" onclick="closeModal()">Cancelar</button>
-      <button class="btn" style="background:#534AB7;color:#fff;border-color:#534AB7" onclick="saveModal()">Guardar</button>
+      <button class="btn btn-primary" onclick="saveModal()">Guardar</button>
     </div>
   </div>
 </div>
+
+<!-- MODAL ALCALDE -->
 <div class="modal-bg" id="alcaldeBg">
   <div class="modal">
     <h2 id="alcaldeTitle">Editar alcalde/sa</h2>
     <input type="hidden" id="alcaldeComuna">
-    <input type="text" id="alcaldeNombre" placeholder="Nombre completo">
-    <input type="text" id="alcaldePartido" placeholder="Partido / coalición">
+    <div class="modal-field">
+      <label class="modal-label">Nombre completo</label>
+      <input type="text" id="alcaldeNombre" placeholder="Nombre completo">
+    </div>
+    <div class="modal-field">
+      <label class="modal-label">Partido / Coalición</label>
+      <input type="text" id="alcaldePartido" placeholder="Partido o coalición">
+    </div>
+    <div class="modal-row">
+      <div class="modal-field">
+        <label class="modal-label">Votos obtenidos</label>
+        <input type="number" id="alcaldeVotos" placeholder="Ej: 15420" min="0">
+      </div>
+      <div class="modal-field">
+        <label class="modal-label">Periodo en el cargo</label>
+        <select id="alcaldePeriodo">
+          <option value="">Sin especificar</option>
+          <option value="Nuevo">Nuevo electo</option>
+          <option value="1er periodo">1er periodo</option>
+          <option value="2do periodo">2do periodo</option>
+          <option value="3er periodo">3er periodo</option>
+          <option value="4to periodo">4to periodo</option>
+        </select>
+      </div>
+    </div>
+    <div class="modal-field">
+      <label class="modal-label">Notas / Observaciones</label>
+      <input type="text" id="alcaldeNotas" placeholder="Información adicional...">
+    </div>
     <div class="modal-btns">
       <button class="btn" onclick="document.getElementById('alcaldeBg').classList.remove('open')">Cancelar</button>
-      <button class="btn" style="background:#534AB7;color:#fff;border-color:#534AB7" onclick="saveAlcalde()">Guardar</button>
+      <button class="btn btn-primary" onclick="saveAlcalde()">Guardar</button>
     </div>
   </div>
 </div>
@@ -206,57 +310,36 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 <script>
 // =============================================
-// CONTRASEÑAS — CAMBIA AQUÍ
+// CONTRASEÑAS
 // =============================================
-const PASS_EDITOR    = "pdg2025editor";   // ← contraseña para editar
-const PASS_VISITANTE = "pdg2025ver";      // ← contraseña solo lectura
-// =============================================
+const PASS_EDITOR    = "pdg2025editor";
+const PASS_VISITANTE = "pdg2025ver";
 
 // ⚠️ REEMPLAZA CON TU URL DE APPS SCRIPT
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwxiNuercziQsf2wTLUygesRhb0-DNAAnrypmYQhqWyWNCXhJ-nysa5YrpEDiCbgkn1/exec";
 
-let currentRole = null; // "editor" | "visitante"
+let currentRole = null;
 
 function doLogin(){
   const pass = document.getElementById("loginPass").value;
   const err  = document.getElementById("loginError");
-  if(pass === PASS_EDITOR){
-    currentRole = "editor";
-    startApp();
-  } else if(pass === PASS_VISITANTE){
-    currentRole = "visitante";
-    startApp();
-  } else {
-    err.textContent = "Contraseña incorrecta. Intenta de nuevo.";
-    document.getElementById("loginPass").value = "";
-    document.getElementById("loginPass").focus();
-  }
+  if(pass === PASS_EDITOR){ currentRole="editor"; startApp(); }
+  else if(pass === PASS_VISITANTE){ currentRole="visitante"; startApp(); }
+  else{ err.textContent="Contraseña incorrecta."; document.getElementById("loginPass").value=""; }
 }
-
 function startApp(){
-  document.getElementById("loginScreen").style.display = "none";
+  document.getElementById("loginScreen").style.display="none";
   document.getElementById("mainApp").classList.add("visible");
-  const badge = document.getElementById("roleBadge");
-  if(currentRole === "editor"){
-    badge.className = "role-badge role-editor";
-    badge.textContent = "✎ Editor";
-  } else {
-    badge.className = "role-badge role-visitante";
-    badge.textContent = "👁 Solo lectura";
-  }
+  const b=document.getElementById("roleBadge");
+  if(currentRole==="editor"){ b.className="role-badge role-editor"; b.textContent="✎ Editor"; }
+  else { b.className="role-badge role-visitante"; b.textContent="👁 Solo lectura"; }
   loadData();
 }
-
-function logout(){
-  currentRole = null;
-  document.getElementById("mainApp").classList.remove("visible");
-  document.getElementById("loginScreen").style.display = "flex";
-  document.getElementById("loginPass").value = "";
-  document.getElementById("loginError").textContent = "";
-}
+function logout(){ currentRole=null; document.getElementById("mainApp").classList.remove("visible"); document.getElementById("loginScreen").style.display="flex"; document.getElementById("loginPass").value=""; document.getElementById("loginError").textContent=""; }
+function isEditor(){ return currentRole==="editor"; }
 
 // =============================================
-// DATOS INICIALES — ALCALDES + CONCEJALES
+// DATOS
 // =============================================
 const ALCALDES_INICIALES = {
   "La Granja":{nombre:"Claudio Eugenio Arriagada Macaya",partido:""},
@@ -314,523 +397,61 @@ const ALCALDES_INICIALES = {
 };
 
 const CONCEJALES_INICIALES = {
-  "La Granja":[
-    {nombre:"Juan Valdés Valdés",partido:"Chile Mucho Mejor"},
-    {nombre:"Bernardita Aguirre Cabezas",partido:"Chile Mucho Mejor"},
-    {nombre:"Sergio Urbina Núñez",partido:"Chile Mucho Mejor"},
-    {nombre:"Guillermo Andrés Moreno Barrios",partido:"Verdes Liberales"},
-    {nombre:"Ximena Claudia Palacios Orellana",partido:"Por Chile Seguimos"},
-    {nombre:"Tamara del Carmen Osorio Peralta",partido:"Republicanos"},
-    {nombre:"María de la Jara Frías",partido:"Chile Vamos RN"},
-    {nombre:"Nancy Nicul Lincoleo",partido:"Ecologistas Animalistas"}
-  ],
-  "Macul":[
-    {nombre:"María Olga Mercedes Gómez Araya",partido:"Republicanos"},
-    {nombre:"Tito Sergio Puyol Carreño",partido:"Republicanos"},
-    {nombre:"Margarita Jeannette Figueroa Huenutripai",partido:"Por Chile Seguimos"},
-    {nombre:"Michael Antonio Urra Depaulo",partido:"Por Chile Seguimos"},
-    {nombre:"Cristian Andrés Aguiló Armstrong",partido:"Chile Vamos RN"},
-    {nombre:"Ximena del Carmen Zuleta Dinamarca",partido:"Chile Mucho Mejor"},
-    {nombre:"Soledad Pérez Peña",partido:"Ecologistas Animalistas"},
-    {nombre:"Jaime Andrés López Larraín",partido:"Verdes Liberales"}
-  ],
-  "Ñuñoa":[
-    {nombre:"Alejandra Andrea Valle Salinas",partido:"Por Chile Seguimos"},
-    {nombre:"Verónica Sandra Chávez Gutiérrez",partido:"Por Chile Seguimos"},
-    {nombre:"Andrés Roberto Argandoña Besoaín",partido:"Por Chile Seguimos"},
-    {nombre:"Mireya del Río Barañao",partido:"Por Chile Seguimos"},
-    {nombre:"Daniela Bonvallet Setti",partido:"Chile Vamos RN"},
-    {nombre:"Guido Benavides Araneda",partido:"Chile Vamos RN"},
-    {nombre:"Carlos Andrés Vega Cifuentes",partido:"Republicanos"},
-    {nombre:"María Ximena Aros Espinoza",partido:"Republicanos"},
-    {nombre:"Nicolás Saldivia Niklitschek",partido:"Chile Vamos UDI"},
-    {nombre:"Maite Valeria Descouvieres Vargas",partido:"Chile Mucho Mejor"}
-  ],
-  "Providencia":[
-    {nombre:"Isabel Labbé Martínez",partido:"Chile Vamos UDI"},
-    {nombre:"Valentina Javiera Alarcón Chávez",partido:"Chile Vamos UDI"},
-    {nombre:"María Carolina Plaza Guzmán",partido:"Chile Vamos UDI"},
-    {nombre:"María Eugenia Pino García",partido:"Por Chile Seguimos"},
-    {nombre:"Cristóbal Alejandro Lagos González",partido:"Por Chile Seguimos"},
-    {nombre:"Rodrigo Wladimir Valenzuela Báez",partido:"Republicanos"},
-    {nombre:"Solange Andrea Wolleter Dávila",partido:"Republicanos"},
-    {nombre:"María Fernanda Maquieira Borgoño",partido:"Chile Vamos RN"},
-    {nombre:"Mauricio Labbé Barría",partido:"Chile Vamos RN"},
-    {nombre:"María Antonieta Saa Díaz",partido:"Chile Mucho Mejor"}
-  ],
-  "San Joaquín":[
-    {nombre:"Ingrid Constancia Feliu Jarqués",partido:"Republicanos"},
-    {nombre:"Montserrat Isidora Muñoz Gárate",partido:"Por Chile Seguimos"},
-    {nombre:"Carlos Alfonso Núñez Villarroel",partido:"Por Chile Seguimos"},
-    {nombre:"Tiare Carolina Hernández Nieto",partido:"Chile Mucho Mejor"},
-    {nombre:"Eduardo Alfredo Villalobos Flores",partido:"Chile Mucho Mejor"},
-    {nombre:"Jozo Paulo Vukelic Arancibia",partido:"Tu Comuna Radical"},
-    {nombre:"Carolina Calderón Montecinos",partido:"Chile Vamos UDI"},
-    {nombre:"Patricia Victoria Leiva Martínez",partido:"Verdes Liberales"}
-  ],
-  "Santiago":[
-    {nombre:"Juan Mena Echeverría",partido:"Chile Vamos RN"},
-    {nombre:"Santiago Mekis Arnolds",partido:"Chile Vamos RN"},
-    {nombre:"María José Ramírez Calquín",partido:"Chile Vamos RN"},
-    {nombre:"Dafne Susana Concha Ferrando",partido:"Por Chile Seguimos"},
-    {nombre:"Camila Fernanda Davagnino Reyes",partido:"Por Chile Seguimos"},
-    {nombre:"Ana María Yáñez Varas",partido:"Por Chile Seguimos"},
-    {nombre:"Vicente Martínez Álvarez",partido:"Republicanos"},
-    {nombre:"Carolina Andrea Prieto Núñez",partido:"Republicanos"},
-    {nombre:"Claudia Andrea Ramírez Martínez",partido:"Ecologistas Animalistas"},
-    {nombre:"Luis Mackenna Irarrázaval",partido:"Chile Vamos UDI"}
-  ],
-  "La Reina":[
-    {nombre:"Manuel José Covarrubias Cerda",partido:"Chile Vamos UDI"},
-    {nombre:"Luis Acevedo Sánchez",partido:"Chile Vamos UDI"},
-    {nombre:"Ursus Trotter Lecaros",partido:"Chile Vamos UDI"},
-    {nombre:"Mauricio Martín Hartwig",partido:"Republicanos"},
-    {nombre:"Lisette Gautier García",partido:"Republicanos"},
-    {nombre:"Rodolfo Nicolás del Real Mihovilovic",partido:"Chile Vamos RN"},
-    {nombre:"Fernando Andrés Encina Waissbluth",partido:"Por Chile Seguimos"},
-    {nombre:"Cristian Pablo del Canto Quiroga",partido:"Chile Mucho Mejor"}
-  ],
-  "Las Condes":[
-    {nombre:"Catalina Ugarte Millán",partido:"Republicanos"},
-    {nombre:"Pamela de Lourdes Hodár Alba",partido:"Republicanos"},
-    {nombre:"Cristóbal Andrés de la Maza López",partido:"Republicanos"},
-    {nombre:"Leonardo Prat Fernández",partido:"Republicanos"},
-    {nombre:"Manuel Melero Abaroa",partido:"Chile Vamos UDI"},
-    {nombre:"Francesca Gorrini Tesser",partido:"Chile Vamos UDI"},
-    {nombre:"Guillermo Ureta Larrraín",partido:"Chile Vamos UDI"},
-    {nombre:"Luis Antonio Hadad Acevedo",partido:"Chile Vamos RN"},
-    {nombre:"Richard John Kouyoumdjian Inglis",partido:"Chile Vamos RN"},
-    {nombre:"Gema Nayati Mahmoud Contreras",partido:"Por Chile Seguimos"}
-  ],
-  "Lo Barnechea":[
-    {nombre:"Juan Chomali Kattan",partido:"Chile Vamos RN"},
-    {nombre:"Michael Comber Vial",partido:"Chile Vamos RN"},
-    {nombre:"Juan Pablo Parada Da Fonseca",partido:"Chile Vamos RN"},
-    {nombre:"Benjamín José Errázuriz Palacios",partido:"Republicanos"},
-    {nombre:"Carmen Laura Mc Intyre Astorga",partido:"Republicanos"},
-    {nombre:"Paulette Guiloff Hes",partido:"Chile Vamos UDI"},
-    {nombre:"Pablo Errázuriz de la Maza",partido:"Chile Vamos UDI"},
-    {nombre:"Francisco Javier Madrid Vera",partido:"Por Chile Seguimos"}
-  ],
-  "Peñalolén":[
-    {nombre:"Daniela Antonia López Awad",partido:"Por Chile Seguimos"},
-    {nombre:"Iván Alejandro Tapia Peñaloza",partido:"Por Chile Seguimos"},
-    {nombre:"Ignacio Sánchez Pino",partido:"Chile Vamos RN"},
-    {nombre:"Carla Verónica Caro Figueroa",partido:"Chile Vamos RN"},
-    {nombre:"Sebastián Villouta Seguel",partido:"Republicanos"},
-    {nombre:"Valentina Escobar Petit",partido:"Republicanos"},
-    {nombre:"Juan Cristóbal Cantuarias Cantuarias",partido:"Chile Mucho Mejor"},
-    {nombre:"Cristian Jorge Jofre Delgado",partido:"Chile Mucho Mejor"},
-    {nombre:"Begoña Torres Kurth",partido:"Chile Vamos UDI"},
-    {nombre:"Claudio Andrés Hernández Olivares",partido:"Izquierda Ecologista Popular"}
-  ],
-  "Vitacura":[
-    {nombre:"Felipe Morandé Lavín",partido:"Chile Vamos UDI"},
-    {nombre:"Paula Domínguez Risopátrón",partido:"Chile Vamos UDI"},
-    {nombre:"Ignacio Hue Wielandt",partido:"Chile Vamos UDI"},
-    {nombre:"Verónica del Real Cardoen",partido:"Republicanos"},
-    {nombre:"Joaquín Jerez Salvo",partido:"Republicanos"},
-    {nombre:"Catalina Vera Atria",partido:"Republicanos"},
-    {nombre:"Carlos Eduardo Cruz-Coke Carvallo",partido:"Chile Vamos RN"},
-    {nombre:"Catalina Christiane Recordón Martín",partido:"Chile Vamos RN"}
-  ],
-  "La Florida":[
-    {nombre:"Felipe Eduardo Mancilla Mejías",partido:"Chile Vamos RN"},
-    {nombre:"Hugo Andrés Herrera Baeza",partido:"Chile Vamos RN"},
-    {nombre:"Renata Valentina Santander Ramírez",partido:"Chile Vamos RN"},
-    {nombre:"Leticia Marioly Lagos Vidal",partido:"Chile Vamos RN"},
-    {nombre:"José Antonio Seves Rojas",partido:"Por Chile Seguimos"},
-    {nombre:"Lía Francisca Gálvez Fuentes",partido:"Por Chile Seguimos"},
-    {nombre:"Victoria Teresa Oyarzún Carvajal",partido:"Por Chile Seguimos"},
-    {nombre:"Martina Aldana Jesús Díaz Carrasco",partido:"Republicanos"},
-    {nombre:"Alejandra Parra Galasso",partido:"Chile Vamos UDI"},
-    {nombre:"Reinaldo Rosales Méndez",partido:"Chile Mucho Mejor"}
-  ],
-  "La Pintana":[
-    {nombre:"Marcela Loreto Poveda Morales",partido:"Chile Mucho Mejor"},
-    {nombre:"Iván Guido López Bilbao",partido:"Chile Mucho Mejor"},
-    {nombre:"Isaac Natanael Aarón Núñez Sepúlveda",partido:"Republicanos"},
-    {nombre:"Roberto Daniel Jaramillo Carreño",partido:"Izquierda Ecologista Popular"},
-    {nombre:"René Díaz Jorquera",partido:"Tu Comuna Radical"},
-    {nombre:"Sara Guerrero Martínez",partido:"Chile Vamos RN"},
-    {nombre:"Waleska Andrea Salas Núñez",partido:"Por Chile Seguimos"},
-    {nombre:"Stephany Isabel Hurtado Panes",partido:"Ecologistas Animalistas"}
-  ],
-  "Pirque":[
-    {nombre:"Claudio Arredondo Medina",partido:"Chile Mucho Mejor"},
-    {nombre:"Luis Alberto Batallé Pedreros",partido:"Chile Mucho Mejor"},
-    {nombre:"Sergio Luis Ulloa Galdames",partido:"Por Chile Seguimos"},
-    {nombre:"Betzabé Graciela Muñoz Herrera",partido:"Tu Comuna Radical"},
-    {nombre:"Leopoldo Alfredo Pérez Lahsen",partido:"Chile Vamos RN"},
-    {nombre:"Viviana Norma Petric Meneses",partido:"Republicanos"}
-  ],
-  "Puente Alto":[
-    {nombre:"Andrés Codina Powers",partido:"Chile Vamos RN"},
-    {nombre:"Olivier Jorge Mellado Rodríguez",partido:"Chile Vamos RN"},
-    {nombre:"Tatiana Andrea Campos Contreras",partido:"Chile Vamos RN"},
-    {nombre:"Ariel Enrique Espinoza Gallardo",partido:"Ecologistas Animalistas"},
-    {nombre:"Pola Karin Montoya Videla",partido:"Ecologistas Animalistas"},
-    {nombre:"Denisse Scarlett Carvalho Carvallo",partido:"Por Chile Seguimos"},
-    {nombre:"Constanza Andrea Menares Gutiérrez",partido:"Por Chile Seguimos"},
-    {nombre:"Víctor Manuel Castro Fredes",partido:"Republicanos"},
-    {nombre:"Macarena Gárate González",partido:"Chile Mucho Mejor"},
-    {nombre:"Carolina Valeria Ailín Díaz Villagra",partido:"Partido Social Cristiano"}
-  ],
-  "San José de Maipo":[
-    {nombre:"Maite Cecilia Birke Abaroa",partido:"Por Chile Seguimos"},
-    {nombre:"Diego Roberto Trincado Herrera",partido:"Por Chile Seguimos"},
-    {nombre:"Camila Ester Barahona Ramírez",partido:"Tu Comuna Radical"},
-    {nombre:"Anthony Lawrence Prior Carvajal",partido:"Tu Comuna Radical"},
-    {nombre:"Luis Andrés Vargas Sandoval",partido:"Chile Mucho Mejor"},
-    {nombre:"Constanza González González",partido:"Chile Vamos UDI"}
-  ],
-  "El Bosque":[
-    {nombre:"Simón Matías Melo Contreras",partido:"Chile Mucho Mejor"},
-    {nombre:"Lorena Liz Downey Belmar",partido:"Chile Mucho Mejor"},
-    {nombre:"Nicol Judit Sepúlveda Hernández",partido:"Chile Mucho Mejor"},
-    {nombre:"Rafael Alberto Valenzuela Pérez",partido:"Republicanos"},
-    {nombre:"Rosa Victoria Peralta Valenzuela",partido:"Republicanos"},
-    {nombre:"Carlos Contreras Muñoz",partido:"Chile Vamos RN"},
-    {nombre:"Patricia Arriagada Núñez",partido:"Chile Vamos UDI"},
-    {nombre:"José Miguel Laiño González",partido:"Por Chile Seguimos"}
-  ],
-  "La Cisterna":[
-    {nombre:"Mónica Quezada González",partido:"Por Chile Seguimos"},
-    {nombre:"Carola Alejandra Espíndola Castro",partido:"Por Chile Seguimos"},
-    {nombre:"Maritza Salas Vega",partido:"Chile Vamos RN"},
-    {nombre:"Gonzalo Ignacio Aguayo Gajardo",partido:"Chile Vamos RN"},
-    {nombre:"Orlando Antonio Morales Becerra",partido:"Chile Mucho Mejor"},
-    {nombre:"Iván Borcoski González",partido:"Chile Mucho Mejor"},
-    {nombre:"César Antonio Antillanca Urrutia",partido:"Republicanos"},
-    {nombre:"Alejandro Patricio Urrutia Jorquera",partido:"Tu Comuna Radical"}
-  ],
-  "Lo Espejo":[
-    {nombre:"Carolina Haydée Sagredo Ugarte",partido:"Por Chile Seguimos"},
-    {nombre:"Javiera Paz López Layana",partido:"Por Chile Seguimos"},
-    {nombre:"Elizabeth Henríquez Leiva",partido:"Por Chile Seguimos"},
-    {nombre:"Francisca Paz Ganga Zúñiga",partido:"Por Chile Seguimos"},
-    {nombre:"Carlo Esteban Acosta de la Fuente",partido:"Chile Vamos RN"},
-    {nombre:"Lorena Galleguillos Oliva",partido:"Chile Mucho Mejor"},
-    {nombre:"Miguel Ángel Cerda Lucero",partido:"Verdes Liberales"},
-    {nombre:"Cecilia Benavides León",partido:"Chile Vamos UDI"}
-  ],
-  "Pedro Aguirre Cerda":[
-    {nombre:"Michel Lobos González",partido:"Chile Mucho Mejor"},
-    {nombre:"Soledad Martínez Gallegos",partido:"Chile Mucho Mejor"},
-    {nombre:"Daniel Muñoz Silva",partido:"Independientes"},
-    {nombre:"Gloria Rodríguez Calderón",partido:"Por Chile Seguimos"},
-    {nombre:"Romina Susana Fuentealba Padilla",partido:"Por Chile Seguimos"},
-    {nombre:"Evaristo Orlando Aravena Toledo",partido:"Tu Comuna Radical"},
-    {nombre:"Carlos Alberto Contreras Fuentes",partido:"Verdes Liberales"},
-    {nombre:"María Ignacia Arjona Baldessarí",partido:"Chile Vamos RN"}
-  ],
-  "San Miguel":[
-    {nombre:"Viviana Paz Llambias Miranda",partido:"Por Chile Seguimos"},
-    {nombre:"Carla Andrea Santana Bustamante",partido:"Por Chile Seguimos"},
-    {nombre:"Claudio Escobar Oyarzún",partido:"Independientes"},
-    {nombre:"Felipe Guevara Stephens",partido:"Chile Vamos RN"},
-    {nombre:"Luis Humberto Sanhueza Bravo",partido:"Chile Vamos RN"},
-    {nombre:"Eva Marian Merino Garcés",partido:"Republicanos"},
-    {nombre:"Gabriel Alejandro Zúñiga Aravena",partido:"Chile Mucho Mejor"},
-    {nombre:"Claudia Rojas Miranda",partido:"Chile Vamos UDI"}
-  ],
-  "San Ramón":[
-    {nombre:"Estefany Catalina Ñanculef Beltrán",partido:"Por Chile Seguimos"},
-    {nombre:"Jacqueline Margarita Sandoval Rozas",partido:"Por Chile Seguimos"},
-    {nombre:"Maricel Oriana del Carmen Araya Peñaloza",partido:"Chile Mucho Mejor"},
-    {nombre:"Fidel Alejandro Contreras Céspedes",partido:"Chile Mucho Mejor"},
-    {nombre:"Cristóbal Antonio Escobar Salinas",partido:"Chile Vamos RN"},
-    {nombre:"Mario Antonio Alarcón León",partido:"Republicanos"},
-    {nombre:"Fidel Castro Solís",partido:"Izquierda Ecologista Popular"},
-    {nombre:"Claudio Alfredo Tapia Díaz",partido:"Ecologistas Animalistas"}
-  ],
-  "Alhué":[
-    {nombre:"Manuel Jesús González Araya",partido:"Chile Mucho Mejor"},
-    {nombre:"Nancy del Carmen Cerda Madrid",partido:"Chile Mucho Mejor"},
-    {nombre:"Fidel Valenzuela Madrid",partido:"Chile Mucho Mejor"},
-    {nombre:"Alex Esteban Riquelme Tarifeño",partido:"Chile Mucho Mejor"},
-    {nombre:"Leonel Acevedo Irrazábal",partido:"Chile Vamos UDI"},
-    {nombre:"Matías Valenzuela Catalán",partido:"Chile Vamos UDI"}
-  ],
-  "Buin":[
-    {nombre:"Diego Calderón Gajardo",partido:"Chile Mucho Mejor"},
-    {nombre:"Patricio Enrique Silva González",partido:"Chile Mucho Mejor"},
-    {nombre:"Pedro Fuentes Hidalgo",partido:"Chile Vamos UDI"},
-    {nombre:"Rodrigo Etcheverry Duhalde",partido:"Chile Vamos UDI"},
-    {nombre:"Tamara Paulina Aguilera Cartagena",partido:"Por Chile Seguimos"},
-    {nombre:"Manuel Alejandro Sánchez Guajardo",partido:"Chile Vamos RN"},
-    {nombre:"Alejandro Eduardo Baudrand Ossandón",partido:"Republicanos"},
-    {nombre:"Julio Sebastián Lobos Calderón",partido:"Verdes Liberales"}
-  ],
-  "Calera de Tango":[
-    {nombre:"Jorge Lorca Popelka",partido:"Chile Vamos UDI"},
-    {nombre:"Renato Quezada Orellana",partido:"Chile Vamos UDI"},
-    {nombre:"Juan Ignacio Cornejo González",partido:"Por Chile Seguimos"},
-    {nombre:"Nicolás Francisco Vallejos Mandiola",partido:"Por Chile Seguimos"},
-    {nombre:"Andrés Moreno Benavente",partido:"Republicanos"},
-    {nombre:"Juan Lobos Herrera",partido:"Chile Vamos RN"}
-  ],
-  "Curacaví":[
-    {nombre:"Mario Emilio Aedo Moreno",partido:"Chile Vamos RN"},
-    {nombre:"Guillermo Felipe Alejandro Salas Araos",partido:"Chile Vamos RN"},
-    {nombre:"Marcela Alejandra Sepúlveda Zamora",partido:"Chile Mucho Mejor"},
-    {nombre:"Francisco Arce Casas-Cordero",partido:"Chile Vamos UDI"},
-    {nombre:"Belén Alejandra Silva Pino",partido:"Por Chile Seguimos"},
-    {nombre:"Ana Rosa Saavedra González",partido:"Republicanos"}
-  ],
-  "El Monte":[
-    {nombre:"Osvaldo Antonio Azócar Pizarro",partido:"Por Chile Seguimos"},
-    {nombre:"Juan Carlos Tello Lazcano",partido:"Chile Vamos RN"},
-    {nombre:"Genaro Alfonso Morales Alveal",partido:"Tu Comuna Radical"},
-    {nombre:"Jorge Nibaldo Bahamonde Donoso",partido:"Chile Mucho Mejor"},
-    {nombre:"Beatriz Margarita Theiler Ahumada",partido:"Republicanos"},
-    {nombre:"Isabel Vidal Jara",partido:"Chile Vamos UDI"}
-  ],
-  "Isla de Maipo":[
-    {nombre:"Maximiliano Genskowski Inostroza",partido:"Chile Vamos UDI"},
-    {nombre:"Verónica Vargas Alfaro",partido:"Chile Vamos UDI"},
-    {nombre:"Miguel Olave Gutiérrez",partido:"Chile Vamos UDI"},
-    {nombre:"Jorge Luis Alfaro Acevedo",partido:"Por Chile Seguimos"},
-    {nombre:"Hernán Leiva Lissembart",partido:"Chile Vamos RN"},
-    {nombre:"Richard Alberto Herrera Guerrero",partido:"Republicanos"}
-  ],
-  "María Pinto":[
-    {nombre:"Felipe Andrés Muñoz Muñoz",partido:"Chile Mucho Mejor"},
-    {nombre:"Héctor Alejandro Coronado Morales",partido:"Chile Mucho Mejor"},
-    {nombre:"Claudia Elena Velásquez Muñoz",partido:"Republicanos"},
-    {nombre:"Cristian Eduardo Díaz Luco",partido:"Republicanos"},
-    {nombre:"José Marcelo Bascuñán Duarte",partido:"Tu Comuna Radical"},
-    {nombre:"Andrea Budge Weber",partido:"Chile Vamos UDI"}
-  ],
-  "Melipilla":[
-    {nombre:"José Luis Cabión Dianta",partido:"Por Chile Seguimos"},
-    {nombre:"Paola Andrea Palacios Núñez",partido:"Por Chile Seguimos"},
-    {nombre:"Mario Carmona Rojas",partido:"Chile Vamos UDI"},
-    {nombre:"Martín Salazar González",partido:"Chile Vamos UDI"},
-    {nombre:"Pamela Acuña Armijo",partido:"Chile Vamos RN"},
-    {nombre:"José Miguel Bolados Correa",partido:"Republicanos"},
-    {nombre:"Nicolás Pedro Martínez Urizar",partido:"Chile Mucho Mejor"},
-    {nombre:"Víctor Rodolfo Loyola Valladares",partido:"Verdes Liberales"}
-  ],
-  "Padre Hurtado":[
-    {nombre:"Paz González Zúñiga",partido:"Chile Vamos UDI"},
-    {nombre:"Marcela Alejandra Rojas Flores",partido:"Chile Mucho Mejor"},
-    {nombre:"Ignacio Arias Díaz",partido:"Verdes Liberales"},
-    {nombre:"Francisco Garrido Sanhueza",partido:"Chile Vamos RN"},
-    {nombre:"Daniela Eunice Díaz Santibáñez",partido:"Republicanos"},
-    {nombre:"Rocío Alejandra López Céspedes",partido:"Por Chile Seguimos"}
-  ],
-  "Paine":[
-    {nombre:"Cecilia Altamirano Vivanco",partido:"Chile Vamos UDI"},
-    {nombre:"Claudia Ahumada Arias",partido:"Chile Vamos UDI"},
-    {nombre:"Fernanda González Vivanco",partido:"Chile Vamos UDI"},
-    {nombre:"Esteban Andrés Calderón Salas",partido:"Republicanos"},
-    {nombre:"María Francisca Rubio Maturana",partido:"Republicanos"},
-    {nombre:"Marco Antonio San Martín Zdrazil",partido:"Chile Mucho Mejor"}
-  ],
-  "Peñaflor":[
-    {nombre:"Cristian Martín Moraga",partido:"Chile Mucho Mejor"},
-    {nombre:"Fernando Andrés San Martín Díaz",partido:"Chile Mucho Mejor"},
-    {nombre:"Guillermo Donoso Aguilar",partido:"Chile Vamos UDI"},
-    {nombre:"Eduardo Castro Ponce",partido:"Chile Vamos UDI"},
-    {nombre:"José Hernán Cárcamo Morales",partido:"Por Chile Seguimos"},
-    {nombre:"Sebastián Ignacio Contreras Uribe",partido:"Por Chile Seguimos"},
-    {nombre:"Claudia Julieta Rubio Guzmán",partido:"Republicanos"},
-    {nombre:"Luis Alberto Contreras Lártiga",partido:"Tu Comuna Radical"}
-  ],
-  "San Bernardo":[
-    {nombre:"Carolina Elisa Fuentealba Aguilar",partido:"Republicanos"},
-    {nombre:"Juan Francisco Rivera Herrera",partido:"Republicanos"},
-    {nombre:"María Jesús Núñez García",partido:"Republicanos"},
-    {nombre:"Cristina Andrea Cofre Guerrero",partido:"Por Chile Seguimos"},
-    {nombre:"Romina Andrea Baeza Illanes",partido:"Por Chile Seguimos"},
-    {nombre:"Marcela Cristina Novoa Sandoval",partido:"Chile Vamos RN"},
-    {nombre:"Leonel Bernardo Navarro Ormeño",partido:"Tu Comuna Radical"},
-    {nombre:"Mariela Araya Cuevas",partido:"Chile Vamos UDI"},
-    {nombre:"Karina Soledad Leyton Espinoza",partido:"Chile Mucho Mejor"},
-    {nombre:"Jaime Óscar López Muñoz",partido:"Ecologistas Animalistas"}
-  ],
-  "San Pedro":[
-    {nombre:"Bárbara Moreno Moya",partido:"Chile Vamos UDI"},
-    {nombre:"Víctor Miguel Armijo Malhue",partido:"Chile Vamos UDI"},
-    {nombre:"Jorge Vera Meza",partido:"Chile Vamos UDI"},
-    {nombre:"Evelyn Farías Olmedo",partido:"Chile Mucho Mejor"},
-    {nombre:"Maricel Laura Tapia Cifuentes",partido:"Chile Mucho Mejor"},
-    {nombre:"Arlene Eliana Santín Armijo",partido:"Verdes Liberales"}
-  ],
-  "Talagante":[
-    {nombre:"Camilo Pérez Álvarez",partido:"Chile Mucho Mejor"},
-    {nombre:"Cecilia Cartagena Toro",partido:"Chile Mucho Mejor"},
-    {nombre:"Marcela Alicia Jofré Catalán",partido:"Republicanos"},
-    {nombre:"Patricio Alejandro Brown Rivera",partido:"Republicanos"},
-    {nombre:"Pablo Fernando González Martínez",partido:"Por Chile Seguimos"},
-    {nombre:"Andrés Llorente Elexpuru",partido:"Chile Vamos UDI"}
-  ],
-  "Cerrillos":[
-    {nombre:"Carolina Francisca Burgos Alarcón",partido:"Republicanos"},
-    {nombre:"Juan de Dios Jiménez Retamal",partido:"Chile Vamos RN"},
-    {nombre:"Luis Alberto Leiva Godoy",partido:"Por Chile Seguimos"},
-    {nombre:"Josefina del Carmen Osorio Oviedo",partido:"Ecologistas Animalistas"},
-    {nombre:"Daivit Mellado Ramírez",partido:"PDG"},
-    {nombre:"Roxana Elizabeth Muñoz Daza",partido:"Tu Comuna Radical"}
-  ],
-  "Colina":[
-    {nombre:"Gonzalo Andrés Torres Ferrari",partido:"Chile Vamos RN"},
-    {nombre:"Lorena Desiree Rojas Mendoza",partido:"Chile Vamos RN"},
-    {nombre:"Rafael Esteban Goñi del Río",partido:"Chile Vamos RN"},
-    {nombre:"Soledad Vial Cummins",partido:"Republicanos"},
-    {nombre:"Carlos Alberto Andrews Cruz",partido:"Republicanos"},
-    {nombre:"Angélica Antimán Palma",partido:"Chile Vamos UDI"},
-    {nombre:"Federico Raúl Koch Valenzuela",partido:"Por Chile Seguimos"},
-    {nombre:"Orlando Marcelino Melo Inostroza",partido:"Chile Mucho Mejor"}
-  ],
-  "Estación Central":[
-    {nombre:"María Elizabeth Pacheco Romero",partido:"Por Chile Seguimos"},
-    {nombre:"Victoria Abigail Herrera Pacheco",partido:"Por Chile Seguimos"},
-    {nombre:"Juan Víctor Araos Vásquez",partido:"Por Chile Seguimos"},
-    {nombre:"Eduardo Andrés Rojas Peña",partido:"Republicanos"},
-    {nombre:"Francisco Javier Rodríguez Garrido",partido:"Republicanos"},
-    {nombre:"Angélica del Rosario Cid Venegas",partido:"Chile Mucho Mejor"},
-    {nombre:"Alejandra Sepúlveda Torres",partido:"Chile Vamos RN"},
-    {nombre:"Evelyn Pino Retamal",partido:"Chile Vamos UDI"}
-  ],
-  "Lampa":[
-    {nombre:"Alejandra Andrea Reinoso Pezoa",partido:"Republicanos"},
-    {nombre:"Claudia Consuelo González Bueno",partido:"Republicanos"},
-    {nombre:"Camilo Alberto Ortúzar Escobar",partido:"Chile Vamos RN"},
-    {nombre:"Armin Armando Fernandoy Vega",partido:"Chile Vamos RN"},
-    {nombre:"Elisa del Carmen Millaquén Quidel",partido:"Chile Mucho Mejor"},
-    {nombre:"Yonatan Isaías Peña Leal",partido:"Tu Comuna Radical"},
-    {nombre:"Alejandra Paola Salas Cannobbio",partido:"Por Chile Seguimos"},
-    {nombre:"Carmen Gloria Ruminot Jorquera",partido:"Chile Vamos UDI"}
-  ],
-  "Maipú":[
-    {nombre:"Bladymir Rafael Muñoz Acevedo",partido:"Por Chile Seguimos"},
-    {nombre:"Ka Elías Paz Quiroz Viveros",partido:"Por Chile Seguimos"},
-    {nombre:"Nicolás Javier Carrancio Fuentes",partido:"Por Chile Seguimos"},
-    {nombre:"Felipe Ignacio Farías López",partido:"Por Chile Seguimos"},
-    {nombre:"Ariel Alejandro Ramos Stocker",partido:"Por Chile Seguimos"},
-    {nombre:"Karen Garrido Neira",partido:"Republicanos"},
-    {nombre:"Edison Sebastián Aguilera Salazar",partido:"Republicanos"},
-    {nombre:"Horacio Saavedra Núñez",partido:"Chile Vamos UDI"},
-    {nombre:"Juan Carlos Prado Chacón",partido:"Chile Vamos RN"},
-    {nombre:"Graciela Arochas Felber",partido:"Chile Mucho Mejor"}
-  ],
-  "Pudahuel":[
-    {nombre:"Johnny Carrasco Cerda",partido:"Chile Mucho Mejor"},
-    {nombre:"Manuel Abelardo Ibarra Mondaca",partido:"Chile Mucho Mejor"},
-    {nombre:"Alda Verónica Magaña Leiva",partido:"Chile Mucho Mejor"},
-    {nombre:"Cristian Patricio Ballesteros Canales",partido:"Republicanos"},
-    {nombre:"Ignacio Agustín Pérez Rojas",partido:"Republicanos"},
-    {nombre:"Carolina del Pilar Seguel Hidalgo",partido:"Por Chile Seguimos"},
-    {nombre:"Cinthya Filia Muñoz Escanilla",partido:"Por Chile Seguimos"},
-    {nombre:"Javiera Alejandra Soto Fuentes",partido:"Izquierda Ecologista Popular"},
-    {nombre:"Sandy Muñoz Poblete",partido:"Izquierda Ecologista Popular"},
-    {nombre:"Cristian Mallea Ortega",partido:"Chile Vamos RN"}
-  ],
-  "Quilicura":[
-    {nombre:"Daniela Paz Cuevas Fuentes",partido:"Por Chile Seguimos"},
-    {nombre:"Danae Andrea García Ibarra",partido:"Por Chile Seguimos"},
-    {nombre:"Mario Esteban Muñoz Chacón",partido:"Republicanos"},
-    {nombre:"Nicolás Alfonso Quiroz Venegas",partido:"Ecologistas Animalistas"},
-    {nombre:"Daniela San Martín Pizarro",partido:"Ecologistas Animalistas"},
-    {nombre:"Claudio Francisco Sáez Belmar",partido:"Chile Vamos RN"},
-    {nombre:"Gonzalo Andrés López Pizarro",partido:"Izquierda Ecologista Popular"},
-    {nombre:"Leonardo Antonio Bahamondes Durán",partido:"Chile Mucho Mejor"},
-    {nombre:"Alexandra Vanessa Arancibia Olea",partido:"Verdes Liberales"},
-    {nombre:"Leslie Elizabeth Pérez Jiménez",partido:"PDG"}
-  ],
-  "Tiltil":[
-    {nombre:"Nelda Rosa Gil Gómez",partido:"Por Chile Seguimos"},
-    {nombre:"Elvio Dante Santana González",partido:"Por Chile Seguimos"},
-    {nombre:"Eva Vargas Aburto",partido:"Chile Vamos UDI"},
-    {nombre:"Katherine Carolina Migliardi Jiménez",partido:"Republicanos"},
-    {nombre:"Guillermo Hernán Campos Hidalgo",partido:"Chile Mucho Mejor"},
-    {nombre:"Exequiel Antonio Leiva Sepúlveda",partido:"Chile Vamos RN"}
-  ],
-  "Cerro Navia":[
-    {nombre:"David Alejandro Urbina Huerta",partido:"Por Chile Seguimos"},
-    {nombre:"Mario Orlando Ferrada Leiva",partido:"Por Chile Seguimos"},
-    {nombre:"Zaida Elizabeth Inostroza Valenzuela",partido:"Por Chile Seguimos"},
-    {nombre:"Sebastián Alejandro Caiceo Bacon",partido:"Por Chile Seguimos"},
-    {nombre:"Danae Vera Calderón",partido:"Chile Vamos RN"},
-    {nombre:"Frank Ronald Lobos Acuña",partido:"Chile Vamos RN"},
-    {nombre:"Luis Gregorio Beltrán Manríquez",partido:"Republicanos"},
-    {nombre:"Israel Alberti Garrido",partido:"Chile Mucho Mejor"}
-  ],
-  "Conchalí":[
-    {nombre:"Martín Ignacio Muñoz Olivares",partido:"Republicanos"},
-    {nombre:"Krishna Patricia Narváez Espinoza",partido:"Republicanos"},
-    {nombre:"Patricia Molina Molina",partido:"Chile Mucho Mejor"},
-    {nombre:"Lissette Alejandra Ponce Palacios",partido:"Chile Mucho Mejor"},
-    {nombre:"Paula Carolina Pérez Espinoza",partido:"Por Chile Seguimos"},
-    {nombre:"Miguel Astudillo Cáceres",partido:"Chile Vamos RN"},
-    {nombre:"Marjorie Andrea Melo Valenzuela",partido:"Izquierda Ecologista Popular"},
-    {nombre:"Hernán Corona Sánchez",partido:"Chile Vamos UDI"}
-  ],
-  "Huechuraba":[
-    {nombre:"Bárbara Andrea Plaza Escobar",partido:"Por Chile Seguimos"},
-    {nombre:"Fresia Margarita Hernández Bravo",partido:"Por Chile Seguimos"},
-    {nombre:"Genaro Fernando Román Zamorano",partido:"Chile Mucho Mejor"},
-    {nombre:"Javiera Jiménez Palomo",partido:"Chile Mucho Mejor"},
-    {nombre:"Jorge Rodrigo Arancibia Labraña",partido:"Republicanos"},
-    {nombre:"Fernando Andrés Pérez Navarro",partido:"Chile Vamos RN"},
-    {nombre:"Humberto José Allendes Olivares",partido:"Chile Vamos UDI"},
-    {nombre:"Elisa Kaelin Tello",partido:"Verdes Liberales"}
-  ],
-  "Independencia":[
-    {nombre:"Leyla Andrea Pichara González",partido:"Por Chile Seguimos"},
-    {nombre:"Rosa Luzmira Huilipán Castillo",partido:"Por Chile Seguimos"},
-    {nombre:"Rodrigo Alejandro Barco Sánchez",partido:"Chile Vamos RN"},
-    {nombre:"Sandra Álvarez Ruiz",partido:"Chile Vamos RN"},
-    {nombre:"Macarena Díaz Rossel",partido:"Chile Vamos UDI"},
-    {nombre:"Manuel Jara Vargas",partido:"Chile Vamos UDI"},
-    {nombre:"Máximo Javier Breake Díaz",partido:"Republicanos"},
-    {nombre:"José Miguel Cuevas Pino",partido:"Chile Mucho Mejor"}
-  ],
-  "Lo Prado":[
-    {nombre:"Diego Pérez Cabrera",partido:"Chile Mucho Mejor"},
-    {nombre:"Marco Antonio Orellana Barra",partido:"Chile Mucho Mejor"},
-    {nombre:"Braulio Alexis Camilo Díaz",partido:"Chile Mucho Mejor"},
-    {nombre:"Santiago Ignacio Guerra Sepúlveda",partido:"Por Chile Seguimos"},
-    {nombre:"Paola Andrea Sandoval Sepúlveda",partido:"Por Chile Seguimos"},
-    {nombre:"Juan Labra Sanhueza",partido:"Chile Vamos RN"},
-    {nombre:"Cesia Bianca Riccio Cuba",partido:"Republicanos"},
-    {nombre:"Miguel Antonio Rojas Villarroel",partido:"PDG"}
-  ],
-  "Quinta Normal":[
-    {nombre:"Nicolás Jaramillo Méndez",partido:"Chile Vamos UDI"},
-    {nombre:"Carla Salazar Tapia",partido:"Chile Vamos UDI"},
-    {nombre:"Alex Ramón Muñoz Viscarra",partido:"Republicanos"},
-    {nombre:"Javier Andrés Robles Bernal",partido:"Por Chile Seguimos"},
-    {nombre:"Valentina Alejandra Tapia Escobar",partido:"Por Chile Seguimos"},
-    {nombre:"Antonieta de las Mercedes Flores Miranda",partido:"Chile Mucho Mejor"},
-    {nombre:"Hilda Marta Landeros Gallardo",partido:"Chile Vamos RN"},
-    {nombre:"Adriano Castillo Herrera",partido:"Tu Comuna Radical"}
-  ],
-  "Recoleta":[
-    {nombre:"Karen Cristina Garrido Ganga",partido:"Por Chile Seguimos"},
-    {nombre:"Joceline Teresa Parra Delgadillo",partido:"Por Chile Seguimos"},
-    {nombre:"Cristian Yuri Weibel Avendaño",partido:"Por Chile Seguimos"},
-    {nombre:"Marcel Rosse Venegas",partido:"Chile Vamos RN"},
-    {nombre:"Marta Ester Valera Aranda",partido:"Republicanos"},
-    {nombre:"Alejandra Muñoz Díaz",partido:"Chile Vamos UDI"},
-    {nombre:"Silvana del Rosario Flores Cruz",partido:"Centro Democrático"},
-    {nombre:"Camila Elizabeth Henríquez Lara",partido:"Chile Mucho Mejor"}
-  ],
-  "Renca":[
-    {nombre:"Diego Ignacio Fuentes Lira",partido:"Tu Comuna Radical"},
-    {nombre:"Ismael Antonio Araya Araya",partido:"Tu Comuna Radical"},
-    {nombre:"Nora Contreras Canales",partido:"Chile Vamos UDI"},
-    {nombre:"Yamilette Carolina Gárate Soto",partido:"Por Chile Seguimos"},
-    {nombre:"Carolina Andrea Coñopán Araya",partido:"Por Chile Seguimos"},
-    {nombre:"Florencio Enrique Kuntz Sanhueza",partido:"Republicanos"},
-    {nombre:"Cecilia del Pilar López Contreras",partido:"Chile Mucho Mejor"},
-    {nombre:"Diego Andrés Martínez Otárola",partido:"Chile Vamos RN"}
-  ]
+  "La Granja":[{nombre:"Juan Valdés Valdés",partido:"Chile Mucho Mejor",votos:3390},{nombre:"Bernardita Aguirre Cabezas",partido:"Chile Mucho Mejor",votos:2715},{nombre:"Sergio Urbina Núñez",partido:"Chile Mucho Mejor",votos:1887},{nombre:"Guillermo Andrés Moreno Barrios",partido:"Verdes Liberales",votos:4236},{nombre:"Ximena Claudia Palacios Orellana",partido:"Por Chile Seguimos",votos:2991},{nombre:"Tamara del Carmen Osorio Peralta",partido:"Republicanos",votos:2973},{nombre:"María de la Jara Frías",partido:"Chile Vamos RN",votos:1718},{nombre:"Nancy Nicul Lincoleo",partido:"Ecologistas Animalistas",votos:1312}],
+  "Macul":[{nombre:"María Olga Mercedes Gómez Araya",partido:"Republicanos",votos:5283},{nombre:"Tito Sergio Puyol Carreño",partido:"Republicanos",votos:4117},{nombre:"Margarita Jeannette Figueroa Huenutripai",partido:"Por Chile Seguimos",votos:4187},{nombre:"Michael Antonio Urra Depaulo",partido:"Por Chile Seguimos",votos:1379},{nombre:"Cristian Andrés Aguiló Armstrong",partido:"Chile Vamos RN",votos:3589},{nombre:"Ximena del Carmen Zuleta Dinamarca",partido:"Chile Mucho Mejor",votos:2357},{nombre:"Soledad Pérez Peña",partido:"Ecologistas Animalistas",votos:2153},{nombre:"Jaime Andrés López Larraín",partido:"Verdes Liberales",votos:1555}],
+  "Ñuñoa":[{nombre:"Alejandra Andrea Valle Salinas",partido:"Por Chile Seguimos",votos:9459},{nombre:"Verónica Sandra Chávez Gutiérrez",partido:"Por Chile Seguimos",votos:6356},{nombre:"Andrés Roberto Argandoña Besoaín",partido:"Por Chile Seguimos",votos:6070},{nombre:"Mireya del Río Barañao",partido:"Por Chile Seguimos",votos:5364},{nombre:"Daniela Bonvallet Setti",partido:"Chile Vamos RN",votos:11282},{nombre:"Guido Benavides Araneda",partido:"Chile Vamos RN",votos:10735},{nombre:"Carlos Andrés Vega Cifuentes",partido:"Republicanos",votos:6094},{nombre:"María Ximena Aros Espinoza",partido:"Republicanos",votos:3057},{nombre:"Nicolás Saldivia Niklitschek",partido:"Chile Vamos UDI",votos:3847},{nombre:"Maite Valeria Descouvieres Vargas",partido:"Chile Mucho Mejor",votos:3646}],
+  "Providencia":[{nombre:"Isabel Labbé Martínez",partido:"Chile Vamos UDI",votos:11332},{nombre:"Valentina Javiera Alarcón Chávez",partido:"Chile Vamos UDI",votos:3937},{nombre:"María Carolina Plaza Guzmán",partido:"Chile Vamos UDI",votos:2122},{nombre:"María Eugenia Pino García",partido:"Por Chile Seguimos",votos:6136},{nombre:"Cristóbal Alejandro Lagos González",partido:"Por Chile Seguimos",votos:2605},{nombre:"Rodrigo Wladimir Valenzuela Báez",partido:"Republicanos",votos:4546},{nombre:"Solange Andrea Wolleter Dávila",partido:"Republicanos",votos:2769},{nombre:"María Fernanda Maquieira Borgoño",partido:"Chile Vamos RN",votos:3790},{nombre:"Mauricio Labbé Barría",partido:"Chile Vamos RN",votos:3432},{nombre:"María Antonieta Saa Díaz",partido:"Chile Mucho Mejor",votos:3581}],
+  "San Joaquín":[{nombre:"Ingrid Constancia Feliu Jarqués",partido:"Republicanos",votos:7463},{nombre:"Montserrat Isidora Muñoz Gárate",partido:"Por Chile Seguimos",votos:3508},{nombre:"Carlos Alfonso Núñez Villarroel",partido:"Por Chile Seguimos",votos:2408},{nombre:"Tiare Carolina Hernández Nieto",partido:"Chile Mucho Mejor",votos:3855},{nombre:"Eduardo Alfredo Villalobos Flores",partido:"Chile Mucho Mejor",votos:1557},{nombre:"Jozo Paulo Vukelic Arancibia",partido:"Tu Comuna Radical",votos:2436},{nombre:"Carolina Calderón Montecinos",partido:"Chile Vamos UDI",votos:1473},{nombre:"Patricia Victoria Leiva Martínez",partido:"Verdes Liberales",votos:1178}],
+  "Santiago":[{nombre:"Juan Mena Echeverría",partido:"Chile Vamos RN",votos:12989},{nombre:"Santiago Mekis Arnolds",partido:"Chile Vamos RN",votos:6962},{nombre:"María José Ramírez Calquín",partido:"Chile Vamos RN",votos:6442},{nombre:"Dafne Susana Concha Ferrando",partido:"Por Chile Seguimos",votos:10383},{nombre:"Camila Fernanda Davagnino Reyes",partido:"Por Chile Seguimos",votos:7719},{nombre:"Ana María Yáñez Varas",partido:"Por Chile Seguimos",votos:5411},{nombre:"Vicente Martínez Álvarez",partido:"Republicanos",votos:9601},{nombre:"Carolina Andrea Prieto Núñez",partido:"Republicanos",votos:6814},{nombre:"Claudia Andrea Ramírez Martínez",partido:"Ecologistas Animalistas",votos:3545},{nombre:"Luis Mackenna Irarrázaval",partido:"Chile Vamos UDI",votos:3404}],
+  "La Reina":[{nombre:"Manuel José Covarrubias Cerda",partido:"Chile Vamos UDI",votos:4076},{nombre:"Luis Acevedo Sánchez",partido:"Chile Vamos UDI",votos:2724},{nombre:"Ursus Trotter Lecaros",partido:"Chile Vamos UDI",votos:2147},{nombre:"Mauricio Martín Hartwig",partido:"Republicanos",votos:3986},{nombre:"Lisette Gautier García",partido:"Republicanos",votos:1529},{nombre:"Rodolfo Nicolás del Real Mihovilovic",partido:"Chile Vamos RN",votos:4181},{nombre:"Fernando Andrés Encina Waissbluth",partido:"Por Chile Seguimos",votos:3427},{nombre:"Cristian Pablo del Canto Quiroga",partido:"Chile Mucho Mejor",votos:3019}],
+  "Las Condes":[{nombre:"Catalina Ugarte Millán",partido:"Republicanos",votos:23314},{nombre:"Pamela de Lourdes Hodár Alba",partido:"Republicanos",votos:6283},{nombre:"Cristóbal Andrés de la Maza López",partido:"Republicanos",votos:6212},{nombre:"Leonardo Prat Fernández",partido:"Republicanos",votos:5203},{nombre:"Manuel Melero Abaroa",partido:"Chile Vamos UDI",votos:9468},{nombre:"Francesca Gorrini Tesser",partido:"Chile Vamos UDI",votos:7320},{nombre:"Guillermo Ureta Larrraín",partido:"Chile Vamos UDI",votos:5046},{nombre:"Luis Antonio Hadad Acevedo",partido:"Chile Vamos RN",votos:12569},{nombre:"Richard John Kouyoumdjian Inglis",partido:"Chile Vamos RN",votos:6244},{nombre:"Gema Nayati Mahmoud Contreras",partido:"Por Chile Seguimos",votos:4074}],
+  "Lo Barnechea":[{nombre:"Juan Chomali Kattan",partido:"Chile Vamos RN",votos:5792},{nombre:"Michael Comber Vial",partido:"Chile Vamos RN",votos:3503},{nombre:"Juan Pablo Parada Da Fonseca",partido:"Chile Vamos RN",votos:2255},{nombre:"Benjamín José Errázuriz Palacios",partido:"Republicanos",votos:6802},{nombre:"Carmen Laura Mc Intyre Astorga",partido:"Republicanos",votos:2034},{nombre:"Paulette Guiloff Hes",partido:"Chile Vamos UDI",votos:4804},{nombre:"Pablo Errázuriz de la Maza",partido:"Chile Vamos UDI",votos:2398},{nombre:"Francisco Javier Madrid Vera",partido:"Por Chile Seguimos",votos:3072}],
+  "Peñalolén":[{nombre:"Daniela Antonia López Awad",partido:"Por Chile Seguimos",votos:5790},{nombre:"Iván Alejandro Tapia Peñaloza",partido:"Por Chile Seguimos",votos:4503},{nombre:"Ignacio Sánchez Pino",partido:"Chile Vamos RN",votos:5427},{nombre:"Carla Verónica Caro Figueroa",partido:"Chile Vamos RN",votos:3856},{nombre:"Sebastián Villouta Seguel",partido:"Republicanos",votos:5404},{nombre:"Valentina Escobar Petit",partido:"Republicanos",votos:3010},{nombre:"Juan Cristóbal Cantuarias Cantuarias",partido:"Chile Mucho Mejor",votos:2916},{nombre:"Cristian Jorge Jofre Delgado",partido:"Chile Mucho Mejor",votos:2850},{nombre:"Begoña Torres Kurth",partido:"Chile Vamos UDI",votos:5394},{nombre:"Claudio Andrés Hernández Olivares",partido:"Izquierda Ecologista Popular",votos:1772}],
+  "Vitacura":[{nombre:"Felipe Morandé Lavín",partido:"Chile Vamos UDI",votos:6234},{nombre:"Paula Domínguez Risopátrón",partido:"Chile Vamos UDI",votos:4235},{nombre:"Ignacio Hue Wielandt",partido:"Chile Vamos UDI",votos:2408},{nombre:"Verónica del Real Cardoen",partido:"Republicanos",votos:4165},{nombre:"Joaquín Jerez Salvo",partido:"Republicanos",votos:4061},{nombre:"Catalina Vera Atria",partido:"Republicanos",votos:3571},{nombre:"Carlos Eduardo Cruz-Coke Carvallo",partido:"Chile Vamos RN",votos:4139},{nombre:"Catalina Christiane Recordón Martín",partido:"Chile Vamos RN",votos:3470}],
+  "La Florida":[{nombre:"Felipe Eduardo Mancilla Mejías",partido:"Chile Vamos RN",votos:19241},{nombre:"Hugo Andrés Herrera Baeza",partido:"Chile Vamos RN",votos:12121},{nombre:"Renata Valentina Santander Ramírez",partido:"Chile Vamos RN",votos:4980},{nombre:"Leticia Marioly Lagos Vidal",partido:"Chile Vamos RN",votos:2948},{nombre:"José Antonio Seves Rojas",partido:"Por Chile Seguimos",votos:10763},{nombre:"Lía Francisca Gálvez Fuentes",partido:"Por Chile Seguimos",votos:5799},{nombre:"Victoria Teresa Oyarzún Carvajal",partido:"Por Chile Seguimos",votos:5684},{nombre:"Martina Aldana Jesús Díaz Carrasco",partido:"Republicanos",votos:9062},{nombre:"Alejandra Parra Galasso",partido:"Chile Vamos UDI",votos:6797},{nombre:"Reinaldo Rosales Méndez",partido:"Chile Mucho Mejor",votos:4852}],
+  "La Pintana":[{nombre:"Marcela Loreto Poveda Morales",partido:"Chile Mucho Mejor",votos:2524},{nombre:"Iván Guido López Bilbao",partido:"Chile Mucho Mejor",votos:2323},{nombre:"Isaac Natanael Aarón Núñez Sepúlveda",partido:"Republicanos",votos:3263},{nombre:"Roberto Daniel Jaramillo Carreño",partido:"Izquierda Ecologista Popular",votos:2653},{nombre:"René Díaz Jorquera",partido:"Tu Comuna Radical",votos:2451},{nombre:"Sara Guerrero Martínez",partido:"Chile Vamos RN",votos:2330},{nombre:"Waleska Andrea Salas Núñez",partido:"Por Chile Seguimos",votos:2185},{nombre:"Stephany Isabel Hurtado Panes",partido:"Ecologistas Animalistas",votos:1769}],
+  "Pirque":[{nombre:"Claudio Arredondo Medina",partido:"Chile Mucho Mejor",votos:1259},{nombre:"Luis Alberto Batallé Pedreros",partido:"Chile Mucho Mejor",votos:842},{nombre:"Sergio Luis Ulloa Galdames",partido:"Por Chile Seguimos",votos:1834},{nombre:"Betzabé Graciela Muñoz Herrera",partido:"Tu Comuna Radical",votos:1268},{nombre:"Leopoldo Alfredo Pérez Lahsen",partido:"Chile Vamos RN",votos:1041},{nombre:"Viviana Norma Petric Meneses",partido:"Republicanos",votos:800}],
+  "Puente Alto":[{nombre:"Andrés Codina Powers",partido:"Chile Vamos RN",votos:18637},{nombre:"Olivier Jorge Mellado Rodríguez",partido:"Chile Vamos RN",votos:14545},{nombre:"Tatiana Andrea Campos Contreras",partido:"Chile Vamos RN",votos:7171},{nombre:"Ariel Enrique Espinoza Gallardo",partido:"Ecologistas Animalistas",votos:9087},{nombre:"Pola Karin Montoya Videla",partido:"Ecologistas Animalistas",votos:7780},{nombre:"Denisse Scarlett Carvalho Carvallo",partido:"Por Chile Seguimos",votos:10847},{nombre:"Constanza Andrea Menares Gutiérrez",partido:"Por Chile Seguimos",votos:4053},{nombre:"Víctor Manuel Castro Fredes",partido:"Republicanos",votos:9664},{nombre:"Macarena Gárate González",partido:"Chile Mucho Mejor",votos:6470},{nombre:"Carolina Valeria Ailín Díaz Villagra",partido:"Partido Social Cristiano",votos:5085}],
+  "San José de Maipo":[{nombre:"Maite Cecilia Birke Abaroa",partido:"Por Chile Seguimos",votos:822},{nombre:"Diego Roberto Trincado Herrera",partido:"Por Chile Seguimos",votos:754},{nombre:"Camila Ester Barahona Ramírez",partido:"Tu Comuna Radical",votos:726},{nombre:"Anthony Lawrence Prior Carvajal",partido:"Tu Comuna Radical",votos:695},{nombre:"Luis Andrés Vargas Sandoval",partido:"Chile Mucho Mejor",votos:767},{nombre:"Constanza González González",partido:"Chile Vamos UDI",votos:464}],
+  "El Bosque":[{nombre:"Simón Matías Melo Contreras",partido:"Chile Mucho Mejor",votos:5994},{nombre:"Lorena Liz Downey Belmar",partido:"Chile Mucho Mejor",votos:5024},{nombre:"Nicol Judit Sepúlveda Hernández",partido:"Chile Mucho Mejor",votos:1005},{nombre:"Rafael Alberto Valenzuela Pérez",partido:"Republicanos",votos:5179},{nombre:"Rosa Victoria Peralta Valenzuela",partido:"Republicanos",votos:2246},{nombre:"Carlos Contreras Muñoz",partido:"Chile Vamos RN",votos:4820},{nombre:"Patricia Arriagada Núñez",partido:"Chile Vamos UDI",votos:3798},{nombre:"José Miguel Laiño González",partido:"Por Chile Seguimos",votos:3280}],
+  "La Cisterna":[{nombre:"Mónica Quezada González",partido:"Por Chile Seguimos",votos:3244},{nombre:"Carola Alejandra Espíndola Castro",partido:"Por Chile Seguimos",votos:1483},{nombre:"Maritza Salas Vega",partido:"Chile Vamos RN",votos:2238},{nombre:"Gonzalo Ignacio Aguayo Gajardo",partido:"Chile Vamos RN",votos:2145},{nombre:"Orlando Antonio Morales Becerra",partido:"Chile Mucho Mejor",votos:1898},{nombre:"Iván Borcoski González",partido:"Chile Mucho Mejor",votos:1526},{nombre:"César Antonio Antillanca Urrutia",partido:"Republicanos",votos:2825},{nombre:"Alejandro Patricio Urrutia Jorquera",partido:"Tu Comuna Radical",votos:1610}],
+  "Lo Espejo":[{nombre:"Carolina Haydée Sagredo Ugarte",partido:"Por Chile Seguimos",votos:5613},{nombre:"Javiera Paz López Layana",partido:"Por Chile Seguimos",votos:4068},{nombre:"Elizabeth Henríquez Leiva",partido:"Por Chile Seguimos",votos:2718},{nombre:"Francisca Paz Ganga Zúñiga",partido:"Por Chile Seguimos",votos:2288},{nombre:"Carlo Esteban Acosta de la Fuente",partido:"Chile Vamos RN",votos:2231},{nombre:"Lorena Galleguillos Oliva",partido:"Chile Mucho Mejor",votos:1821},{nombre:"Miguel Ángel Cerda Lucero",partido:"Verdes Liberales",votos:1779},{nombre:"Cecilia Benavides León",partido:"Chile Vamos UDI",votos:933}],
+  "Pedro Aguirre Cerda":[{nombre:"Michel Lobos González",partido:"Chile Mucho Mejor",votos:3331},{nombre:"Soledad Martínez Gallegos",partido:"Chile Mucho Mejor",votos:2038},{nombre:"Daniel Muñoz Silva",partido:"Independientes",votos:5128},{nombre:"Gloria Rodríguez Calderón",partido:"Por Chile Seguimos",votos:2843},{nombre:"Romina Susana Fuentealba Padilla",partido:"Por Chile Seguimos",votos:1468},{nombre:"Evaristo Orlando Aravena Toledo",partido:"Tu Comuna Radical",votos:2245},{nombre:"Carlos Alberto Contreras Fuentes",partido:"Verdes Liberales",votos:1947},{nombre:"María Ignacia Arjona Baldessarí",partido:"Chile Vamos RN",votos:1669}],
+  "San Miguel":[{nombre:"Viviana Paz Llambias Miranda",partido:"Por Chile Seguimos",votos:4659},{nombre:"Carla Andrea Santana Bustamante",partido:"Por Chile Seguimos",votos:2013},{nombre:"Claudio Escobar Oyarzún",partido:"Independientes",votos:5719},{nombre:"Felipe Guevara Stephens",partido:"Chile Vamos RN",votos:2993},{nombre:"Luis Humberto Sanhueza Bravo",partido:"Chile Vamos RN",votos:2568},{nombre:"Eva Marian Merino Garcés",partido:"Republicanos",votos:3150},{nombre:"Gabriel Alejandro Zúñiga Aravena",partido:"Chile Mucho Mejor",votos:2202},{nombre:"Claudia Rojas Miranda",partido:"Chile Vamos UDI",votos:1971}],
+  "San Ramón":[{nombre:"Estefany Catalina Ñanculef Beltrán",partido:"Por Chile Seguimos",votos:2226},{nombre:"Jacqueline Margarita Sandoval Rozas",partido:"Por Chile Seguimos",votos:1482},{nombre:"Maricel Oriana del Carmen Araya Peñaloza",partido:"Chile Mucho Mejor",votos:1933},{nombre:"Fidel Alejandro Contreras Céspedes",partido:"Chile Mucho Mejor",votos:1398},{nombre:"Cristóbal Antonio Escobar Salinas",partido:"Chile Vamos RN",votos:3086},{nombre:"Mario Antonio Alarcón León",partido:"Republicanos",votos:2422},{nombre:"Fidel Castro Solís",partido:"Izquierda Ecologista Popular",votos:1384},{nombre:"Claudio Alfredo Tapia Díaz",partido:"Ecologistas Animalistas",votos:1111}],
+  "Alhué":[{nombre:"Manuel Jesús González Araya",partido:"Chile Mucho Mejor",votos:742},{nombre:"Nancy del Carmen Cerda Madrid",partido:"Chile Mucho Mejor",votos:476},{nombre:"Fidel Valenzuela Madrid",partido:"Chile Mucho Mejor",votos:430},{nombre:"Alex Esteban Riquelme Tarifeño",partido:"Chile Mucho Mejor",votos:291},{nombre:"Leonel Acevedo Irrazábal",partido:"Chile Vamos UDI",votos:419},{nombre:"Matías Valenzuela Catalán",partido:"Chile Vamos UDI",votos:404}],
+  "Buin":[{nombre:"Diego Calderón Gajardo",partido:"Chile Mucho Mejor",votos:3976},{nombre:"Patricio Enrique Silva González",partido:"Chile Mucho Mejor",votos:2964},{nombre:"Pedro Fuentes Hidalgo",partido:"Chile Vamos UDI",votos:3328},{nombre:"Rodrigo Etcheverry Duhalde",partido:"Chile Vamos UDI",votos:2473},{nombre:"Tamara Paulina Aguilera Cartagena",partido:"Por Chile Seguimos",votos:3908},{nombre:"Manuel Alejandro Sánchez Guajardo",partido:"Chile Vamos RN",votos:3272},{nombre:"Alejandro Eduardo Baudrand Ossandón",partido:"Republicanos",votos:3123},{nombre:"Julio Sebastián Lobos Calderón",partido:"Verdes Liberales",votos:1447}],
+  "Calera de Tango":[{nombre:"Jorge Lorca Popelka",partido:"Chile Vamos UDI",votos:1422},{nombre:"Renato Quezada Orellana",partido:"Chile Vamos UDI",votos:817},{nombre:"Juan Ignacio Cornejo González",partido:"Por Chile Seguimos",votos:1340},{nombre:"Nicolás Francisco Vallejos Mandiola",partido:"Por Chile Seguimos",votos:883},{nombre:"Andrés Moreno Benavente",partido:"Republicanos",votos:1204},{nombre:"Juan Lobos Herrera",partido:"Chile Vamos RN",votos:897}],
+  "Curacaví":[{nombre:"Mario Emilio Aedo Moreno",partido:"Chile Vamos RN",votos:1876},{nombre:"Guillermo Felipe Alejandro Salas Araos",partido:"Chile Vamos RN",votos:1713},{nombre:"Marcela Alejandra Sepúlveda Zamora",partido:"Chile Mucho Mejor",votos:1358},{nombre:"Francisco Arce Casas-Cordero",partido:"Chile Vamos UDI",votos:1004},{nombre:"Belén Alejandra Silva Pino",partido:"Por Chile Seguimos",votos:983},{nombre:"Ana Rosa Saavedra González",partido:"Republicanos",votos:752}],
+  "El Monte":[{nombre:"Osvaldo Antonio Azócar Pizarro",partido:"Por Chile Seguimos",votos:2094},{nombre:"Juan Carlos Tello Lazcano",partido:"Chile Vamos RN",votos:1460},{nombre:"Genaro Alfonso Morales Alveal",partido:"Tu Comuna Radical",votos:1374},{nombre:"Jorge Nibaldo Bahamonde Donoso",partido:"Chile Mucho Mejor",votos:1054},{nombre:"Beatriz Margarita Theiler Ahumada",partido:"Republicanos",votos:1035},{nombre:"Isabel Vidal Jara",partido:"Chile Vamos UDI",votos:990}],
+  "Isla de Maipo":[{nombre:"Maximiliano Genskowski Inostroza",partido:"Chile Vamos UDI",votos:3148},{nombre:"Verónica Vargas Alfaro",partido:"Chile Vamos UDI",votos:2470},{nombre:"Miguel Olave Gutiérrez",partido:"Chile Vamos UDI",votos:1047},{nombre:"Jorge Luis Alfaro Acevedo",partido:"Por Chile Seguimos",votos:3287},{nombre:"Hernán Leiva Lissembart",partido:"Chile Vamos RN",votos:937},{nombre:"Richard Alberto Herrera Guerrero",partido:"Republicanos",votos:856}],
+  "María Pinto":[{nombre:"Felipe Andrés Muñoz Muñoz",partido:"Chile Mucho Mejor",votos:1079},{nombre:"Héctor Alejandro Coronado Morales",partido:"Chile Mucho Mejor",votos:708},{nombre:"Claudia Elena Velásquez Muñoz",partido:"Republicanos",votos:1045},{nombre:"Cristian Eduardo Díaz Luco",partido:"Republicanos",votos:528},{nombre:"José Marcelo Bascuñán Duarte",partido:"Tu Comuna Radical",votos:746},{nombre:"Andrea Budge Weber",partido:"Chile Vamos UDI",votos:720}],
+  "Melipilla":[{nombre:"José Luis Cabión Dianta",partido:"Por Chile Seguimos",votos:5562},{nombre:"Paola Andrea Palacios Núñez",partido:"Por Chile Seguimos",votos:2236},{nombre:"Mario Carmona Rojas",partido:"Chile Vamos UDI",votos:5105},{nombre:"Martín Salazar González",partido:"Chile Vamos UDI",votos:1401},{nombre:"Pamela Acuña Armijo",partido:"Chile Vamos RN",votos:3802},{nombre:"José Miguel Bolados Correa",partido:"Republicanos",votos:2334},{nombre:"Nicolás Pedro Martínez Urizar",partido:"Chile Mucho Mejor",votos:1869},{nombre:"Víctor Rodolfo Loyola Valladares",partido:"Verdes Liberales",votos:1264}],
+  "Padre Hurtado":[{nombre:"Paz González Zúñiga",partido:"Chile Vamos UDI",votos:3928},{nombre:"Marcela Alejandra Rojas Flores",partido:"Chile Mucho Mejor",votos:3332},{nombre:"Ignacio Arias Díaz",partido:"Verdes Liberales",votos:2140},{nombre:"Francisco Garrido Sanhueza",partido:"Chile Vamos RN",votos:2042},{nombre:"Daniela Eunice Díaz Santibáñez",partido:"Republicanos",votos:1933},{nombre:"Rocío Alejandra López Céspedes",partido:"Por Chile Seguimos",votos:1663}],
+  "Paine":[{nombre:"Cecilia Altamirano Vivanco",partido:"Chile Vamos UDI",votos:6899},{nombre:"Claudia Ahumada Arias",partido:"Chile Vamos UDI",votos:4249},{nombre:"Fernanda González Vivanco",partido:"Chile Vamos UDI",votos:2019},{nombre:"Esteban Andrés Calderón Salas",partido:"Republicanos",votos:4420},{nombre:"María Francisca Rubio Maturana",partido:"Republicanos",votos:1256},{nombre:"Marco Antonio San Martín Zdrazil",partido:"Chile Mucho Mejor",votos:1450}],
+  "Peñaflor":[{nombre:"Cristian Martín Moraga",partido:"Chile Mucho Mejor",votos:4735},{nombre:"Fernando Andrés San Martín Díaz",partido:"Chile Mucho Mejor",votos:1833},{nombre:"Guillermo Donoso Aguilar",partido:"Chile Vamos UDI",votos:3139},{nombre:"Eduardo Castro Ponce",partido:"Chile Vamos UDI",votos:2364},{nombre:"José Hernán Cárcamo Morales",partido:"Por Chile Seguimos",votos:2312},{nombre:"Sebastián Ignacio Contreras Uribe",partido:"Por Chile Seguimos",votos:1593},{nombre:"Claudia Julieta Rubio Guzmán",partido:"Republicanos",votos:2381},{nombre:"Luis Alberto Contreras Lártiga",partido:"Tu Comuna Radical",votos:979}],
+  "San Bernardo":[{nombre:"Carolina Elisa Fuentealba Aguilar",partido:"Republicanos",votos:7829},{nombre:"Juan Francisco Rivera Herrera",partido:"Republicanos",votos:3057},{nombre:"María Jesús Núñez García",partido:"Republicanos",votos:2849},{nombre:"Cristina Andrea Cofre Guerrero",partido:"Por Chile Seguimos",votos:4023},{nombre:"Romina Andrea Baeza Illanes",partido:"Por Chile Seguimos",votos:3978},{nombre:"Marcela Cristina Novoa Sandoval",partido:"Chile Vamos RN",votos:5629},{nombre:"Leonel Bernardo Navarro Ormeño",partido:"Tu Comuna Radical",votos:4083},{nombre:"Mariela Araya Cuevas",partido:"Chile Vamos UDI",votos:3975},{nombre:"Karina Soledad Leyton Espinoza",partido:"Chile Mucho Mejor",votos:3751},{nombre:"Jaime Óscar López Muñoz",partido:"Ecologistas Animalistas",votos:2222}],
+  "San Pedro":[{nombre:"Bárbara Moreno Moya",partido:"Chile Vamos UDI",votos:669},{nombre:"Víctor Miguel Armijo Malhue",partido:"Chile Vamos UDI",votos:447},{nombre:"Jorge Vera Meza",partido:"Chile Vamos UDI",votos:431},{nombre:"Evelyn Farías Olmedo",partido:"Chile Mucho Mejor",votos:761},{nombre:"Maricel Laura Tapia Cifuentes",partido:"Chile Mucho Mejor",votos:454},{nombre:"Arlene Eliana Santín Armijo",partido:"Verdes Liberales",votos:610}],
+  "Talagante":[{nombre:"Camilo Pérez Álvarez",partido:"Chile Mucho Mejor",votos:3617},{nombre:"Cecilia Cartagena Toro",partido:"Chile Mucho Mejor",votos:3330},{nombre:"Marcela Alicia Jofré Catalán",partido:"Republicanos",votos:3789},{nombre:"Patricio Alejandro Brown Rivera",partido:"Republicanos",votos:2307},{nombre:"Pablo Fernando González Martínez",partido:"Por Chile Seguimos",votos:3168},{nombre:"Andrés Llorente Elexpuru",partido:"Chile Vamos UDI",votos:2796}],
+  "Cerrillos":[{nombre:"Carolina Francisca Burgos Alarcón",partido:"Republicanos",votos:3367},{nombre:"Juan de Dios Jiménez Retamal",partido:"Chile Vamos RN",votos:2851},{nombre:"Luis Alberto Leiva Godoy",partido:"Por Chile Seguimos",votos:2284},{nombre:"Josefina del Carmen Osorio Oviedo",partido:"Ecologistas Animalistas",votos:2132},{nombre:"Daivit Mellado Ramírez",partido:"PDG",votos:1770},{nombre:"Roxana Elizabeth Muñoz Daza",partido:"Tu Comuna Radical",votos:1527}],
+  "Colina":[{nombre:"Gonzalo Andrés Torres Ferrari",partido:"Chile Vamos RN",votos:9038},{nombre:"Lorena Desiree Rojas Mendoza",partido:"Chile Vamos RN",votos:4340},{nombre:"Rafael Esteban Goñi del Río",partido:"Chile Vamos RN",votos:2513},{nombre:"Soledad Vial Cummins",partido:"Republicanos",votos:6043},{nombre:"Carlos Alberto Andrews Cruz",partido:"Republicanos",votos:3509},{nombre:"Angélica Antimán Palma",partido:"Chile Vamos UDI",votos:3929},{nombre:"Federico Raúl Koch Valenzuela",partido:"Por Chile Seguimos",votos:2322},{nombre:"Orlando Marcelino Melo Inostroza",partido:"Chile Mucho Mejor",votos:1794}],
+  "Estación Central":[{nombre:"María Elizabeth Pacheco Romero",partido:"Por Chile Seguimos",votos:3225},{nombre:"Victoria Abigail Herrera Pacheco",partido:"Por Chile Seguimos",votos:2805},{nombre:"Juan Víctor Araos Vásquez",partido:"Por Chile Seguimos",votos:2732},{nombre:"Eduardo Andrés Rojas Peña",partido:"Republicanos",votos:4586},{nombre:"Francisco Javier Rodríguez Garrido",partido:"Republicanos",votos:2249},{nombre:"Angélica del Rosario Cid Venegas",partido:"Chile Mucho Mejor",votos:4659},{nombre:"Alejandra Sepúlveda Torres",partido:"Chile Vamos RN",votos:3913},{nombre:"Evelyn Pino Retamal",partido:"Chile Vamos UDI",votos:2916}],
+  "Lampa":[{nombre:"Alejandra Andrea Reinoso Pezoa",partido:"Republicanos",votos:2506},{nombre:"Claudia Consuelo González Bueno",partido:"Republicanos",votos:2197},{nombre:"Camilo Alberto Ortúzar Escobar",partido:"Chile Vamos RN",votos:3860},{nombre:"Armin Armando Fernandoy Vega",partido:"Chile Vamos RN",votos:820},{nombre:"Elisa del Carmen Millaquén Quidel",partido:"Chile Mucho Mejor",votos:2290},{nombre:"Yonatan Isaías Peña Leal",partido:"Tu Comuna Radical",votos:1632},{nombre:"Alejandra Paola Salas Cannobbio",partido:"Por Chile Seguimos",votos:1443},{nombre:"Carmen Gloria Ruminot Jorquera",partido:"Chile Vamos UDI",votos:1359}],
+  "Maipú":[{nombre:"Bladymir Rafael Muñoz Acevedo",partido:"Por Chile Seguimos",votos:41740},{nombre:"Ka Elías Paz Quiroz Viveros",partido:"Por Chile Seguimos",votos:9955},{nombre:"Nicolás Javier Carrancio Fuentes",partido:"Por Chile Seguimos",votos:8475},{nombre:"Felipe Ignacio Farías López",partido:"Por Chile Seguimos",votos:8221},{nombre:"Ariel Alejandro Ramos Stocker",partido:"Por Chile Seguimos",votos:7264},{nombre:"Karen Garrido Neira",partido:"Republicanos",votos:11184},{nombre:"Edison Sebastián Aguilera Salazar",partido:"Republicanos",votos:10995},{nombre:"Horacio Saavedra Núñez",partido:"Chile Vamos UDI",votos:8037},{nombre:"Juan Carlos Prado Chacón",partido:"Chile Vamos RN",votos:6854},{nombre:"Graciela Arochas Felber",partido:"Chile Mucho Mejor",votos:4410}],
+  "Pudahuel":[{nombre:"Johnny Carrasco Cerda",partido:"Chile Mucho Mejor",votos:12245},{nombre:"Manuel Abelardo Ibarra Mondaca",partido:"Chile Mucho Mejor",votos:4080},{nombre:"Alda Verónica Magaña Leiva",partido:"Chile Mucho Mejor",votos:1558},{nombre:"Cristian Patricio Ballesteros Canales",partido:"Republicanos",votos:7227},{nombre:"Ignacio Agustín Pérez Rojas",partido:"Republicanos",votos:2373},{nombre:"Carolina del Pilar Seguel Hidalgo",partido:"Por Chile Seguimos",votos:4791},{nombre:"Cinthya Filia Muñoz Escanilla",partido:"Por Chile Seguimos",votos:2767},{nombre:"Javiera Alejandra Soto Fuentes",partido:"Izquierda Ecologista Popular",votos:4506},{nombre:"Sandy Muñoz Poblete",partido:"Izquierda Ecologista Popular",votos:3045},{nombre:"Cristian Mallea Ortega",partido:"Chile Vamos RN",votos:3435}],
+  "Quilicura":[{nombre:"Daniela Paz Cuevas Fuentes",partido:"Por Chile Seguimos",votos:3587},{nombre:"Danae Andrea García Ibarra",partido:"Por Chile Seguimos",votos:2521},{nombre:"Mario Esteban Muñoz Chacón",partido:"Republicanos",votos:5201},{nombre:"Nicolás Alfonso Quiroz Venegas",partido:"Ecologistas Animalistas",votos:2341},{nombre:"Daniela San Martín Pizarro",partido:"Ecologistas Animalistas",votos:2097},{nombre:"Claudio Francisco Sáez Belmar",partido:"Chile Vamos RN",votos:4398},{nombre:"Gonzalo Andrés López Pizarro",partido:"Izquierda Ecologista Popular",votos:2625},{nombre:"Leonardo Antonio Bahamondes Durán",partido:"Chile Mucho Mejor",votos:2213},{nombre:"Alexandra Vanessa Arancibia Olea",partido:"Verdes Liberales",votos:1934},{nombre:"Leslie Elizabeth Pérez Jiménez",partido:"PDG",votos:1900}],
+  "Tiltil":[{nombre:"Nelda Rosa Gil Gómez",partido:"Por Chile Seguimos",votos:782},{nombre:"Elvio Dante Santana González",partido:"Por Chile Seguimos",votos:458},{nombre:"Eva Vargas Aburto",partido:"Chile Vamos UDI",votos:1115},{nombre:"Katherine Carolina Migliardi Jiménez",partido:"Republicanos",votos:855},{nombre:"Guillermo Hernán Campos Hidalgo",partido:"Chile Mucho Mejor",votos:711},{nombre:"Exequiel Antonio Leiva Sepúlveda",partido:"Chile Vamos RN",votos:597}],
+  "Cerro Navia":[{nombre:"David Alejandro Urbina Huerta",partido:"Por Chile Seguimos",votos:6394},{nombre:"Mario Orlando Ferrada Leiva",partido:"Por Chile Seguimos",votos:4463},{nombre:"Zaida Elizabeth Inostroza Valenzuela",partido:"Por Chile Seguimos",votos:3421},{nombre:"Sebastián Alejandro Caiceo Bacon",partido:"Por Chile Seguimos",votos:2648},{nombre:"Danae Vera Calderón",partido:"Chile Vamos RN",votos:5091},{nombre:"Frank Ronald Lobos Acuña",partido:"Chile Vamos RN",votos:2044},{nombre:"Luis Gregorio Beltrán Manríquez",partido:"Republicanos",votos:3313},{nombre:"Israel Alberti Garrido",partido:"Chile Mucho Mejor",votos:1591}],
+  "Conchalí":[{nombre:"Martín Ignacio Muñoz Olivares",partido:"Republicanos",votos:4574},{nombre:"Krishna Patricia Narváez Espinoza",partido:"Republicanos",votos:2647},{nombre:"Patricia Molina Molina",partido:"Chile Mucho Mejor",votos:3374},{nombre:"Lissette Alejandra Ponce Palacios",partido:"Chile Mucho Mejor",votos:2531},{nombre:"Paula Carolina Pérez Espinoza",partido:"Por Chile Seguimos",votos:2461},{nombre:"Miguel Astudillo Cáceres",partido:"Chile Vamos RN",votos:2123},{nombre:"Marjorie Andrea Melo Valenzuela",partido:"Izquierda Ecologista Popular",votos:1652},{nombre:"Hernán Corona Sánchez",partido:"Chile Vamos UDI",votos:1128}],
+  "Huechuraba":[{nombre:"Bárbara Andrea Plaza Escobar",partido:"Por Chile Seguimos",votos:3102},{nombre:"Fresia Margarita Hernández Bravo",partido:"Por Chile Seguimos",votos:2273},{nombre:"Genaro Fernando Román Zamorano",partido:"Chile Mucho Mejor",votos:2029},{nombre:"Javiera Jiménez Palomo",partido:"Chile Mucho Mejor",votos:1757},{nombre:"Jorge Rodrigo Arancibia Labraña",partido:"Republicanos",votos:3276},{nombre:"Fernando Andrés Pérez Navarro",partido:"Chile Vamos RN",votos:2407},{nombre:"Humberto José Allendes Olivares",partido:"Chile Vamos UDI",votos:2327},{nombre:"Elisa Kaelin Tello",partido:"Verdes Liberales",votos:1385}],
+  "Independencia":[{nombre:"Leyla Andrea Pichara González",partido:"Por Chile Seguimos",votos:3576},{nombre:"Rosa Luzmira Huilipán Castillo",partido:"Por Chile Seguimos",votos:1856},{nombre:"Rodrigo Alejandro Barco Sánchez",partido:"Chile Vamos RN",votos:2967},{nombre:"Sandra Álvarez Ruiz",partido:"Chile Vamos RN",votos:2152},{nombre:"Macarena Díaz Rossel",partido:"Chile Vamos UDI",votos:1733},{nombre:"Manuel Jara Vargas",partido:"Chile Vamos UDI",votos:1660},{nombre:"Máximo Javier Breake Díaz",partido:"Republicanos",votos:2408},{nombre:"José Miguel Cuevas Pino",partido:"Chile Mucho Mejor",votos:1570}],
+  "Lo Prado":[{nombre:"Diego Pérez Cabrera",partido:"Chile Mucho Mejor",votos:3959},{nombre:"Marco Antonio Orellana Barra",partido:"Chile Mucho Mejor",votos:3780},{nombre:"Braulio Alexis Camilo Díaz",partido:"Chile Mucho Mejor",votos:1689},{nombre:"Santiago Ignacio Guerra Sepúlveda",partido:"Por Chile Seguimos",votos:1828},{nombre:"Paola Andrea Sandoval Sepúlveda",partido:"Por Chile Seguimos",votos:1376},{nombre:"Juan Labra Sanhueza",partido:"Chile Vamos RN",votos:3196},{nombre:"Cesia Bianca Riccio Cuba",partido:"Republicanos",votos:2439},{nombre:"Miguel Antonio Rojas Villarroel",partido:"PDG",votos:1776}],
+  "Quinta Normal":[{nombre:"Nicolás Jaramillo Méndez",partido:"Chile Vamos UDI",votos:4959},{nombre:"Carla Salazar Tapia",partido:"Chile Vamos UDI",votos:726},{nombre:"Alex Ramón Muñoz Viscarra",partido:"Republicanos",votos:5323},{nombre:"Javier Andrés Robles Bernal",partido:"Por Chile Seguimos",votos:2103},{nombre:"Valentina Alejandra Tapia Escobar",partido:"Por Chile Seguimos",votos:1637},{nombre:"Antonieta de las Mercedes Flores Miranda",partido:"Chile Mucho Mejor",votos:2566},{nombre:"Hilda Marta Landeros Gallardo",partido:"Chile Vamos RN",votos:1756},{nombre:"Adriano Castillo Herrera",partido:"Tu Comuna Radical",votos:1734}],
+  "Recoleta":[{nombre:"Karen Cristina Garrido Ganga",partido:"Por Chile Seguimos",votos:5823},{nombre:"Joceline Teresa Parra Delgadillo",partido:"Por Chile Seguimos",votos:2687},{nombre:"Cristian Yuri Weibel Avendaño",partido:"Por Chile Seguimos",votos:2374},{nombre:"Marcel Rosse Venegas",partido:"Chile Vamos RN",votos:3200},{nombre:"Marta Ester Valera Aranda",partido:"Republicanos",votos:2942},{nombre:"Alejandra Muñoz Díaz",partido:"Chile Vamos UDI",votos:2872},{nombre:"Silvana del Rosario Flores Cruz",partido:"Centro Democrático",votos:2507},{nombre:"Camila Elizabeth Henríquez Lara",partido:"Chile Mucho Mejor",votos:1619}],
+  "Renca":[{nombre:"Diego Ignacio Fuentes Lira",partido:"Tu Comuna Radical",votos:4112},{nombre:"Ismael Antonio Araya Araya",partido:"Tu Comuna Radical",votos:2644},{nombre:"Nora Contreras Canales",partido:"Chile Vamos UDI",votos:5816},{nombre:"Yamilette Carolina Gárate Soto",partido:"Por Chile Seguimos",votos:2989},{nombre:"Carolina Andrea Coñopán Araya",partido:"Por Chile Seguimos",votos:2451},{nombre:"Florencio Enrique Kuntz Sanhueza",partido:"Republicanos",votos:4749},{nombre:"Cecilia del Pilar López Contreras",partido:"Chile Mucho Mejor",votos:3477},{nombre:"Diego Andrés Martínez Otárola",partido:"Chile Vamos RN",votos:2076}]
 };
 
-const DIST_MAP = {
+const DIST_MAP={
   "La Granja":"D10","Macul":"D10","Ñuñoa":"D10","Providencia":"D10","San Joaquín":"D10","Santiago":"D10",
   "La Reina":"D11","Las Condes":"D11","Lo Barnechea":"D11","Peñalolén":"D11","Vitacura":"D11",
   "La Florida":"D12","La Pintana":"D12","Pirque":"D12","Puente Alto":"D12","San José de Maipo":"D12",
@@ -843,32 +464,26 @@ const DIST_MAP = {
 };
 const DIST_NAMES={D8:"Distrito 8",D9:"Distrito 9",D10:"Distrito 10",D11:"Distrito 11",D12:"Distrito 12",D13:"Distrito 13",D14:"Distrito 14"};
 
-let data = {};
+let data={};
 
 function initData(){
-  const saved = localStorage.getItem("pdg_panel_v3");
-  if(saved){ try{ data = JSON.parse(saved); }catch(e){} }
+  const saved=localStorage.getItem("pdg_panel_v4");
+  if(saved){try{data=JSON.parse(saved);}catch(e){}}
   Object.keys(ALCALDES_INICIALES).forEach(c=>{
-    if(!data[c]) data[c]={alcalde:{...ALCALDES_INICIALES[c],pdg:false},candidatos_alcalde:[],concejales:[],candidatos_concejal:[]};
-    if(!data[c].alcalde||!data[c].alcalde.nombre) data[c].alcalde={...ALCALDES_INICIALES[c],pdg:false};
-    // Cargar concejales iniciales si no hay ninguno
-    if((!data[c].concejales||data[c].concejales.length===0) && CONCEJALES_INICIALES[c]){
-      data[c].concejales = CONCEJALES_INICIALES[c].map(p=>({...p,contactado:false,pdg:false,interesado:false}));
+    if(!data[c]) data[c]={alcalde:{...ALCALDES_INICIALES[c],pdg:false,votos:0,periodo:"",notas:""},candidatos_alcalde:[],concejales:[],candidatos_concejal:[]};
+    else{
+      if(!data[c].alcalde||!data[c].alcalde.nombre) data[c].alcalde={...ALCALDES_INICIALES[c],pdg:false,votos:0,periodo:"",notas:""};
+    }
+    if((!data[c].concejales||data[c].concejales.length===0)&&CONCEJALES_INICIALES[c]){
+      data[c].concejales=CONCEJALES_INICIALES[c].map(p=>({...p,contactado:false,pdg:false,interesado:false,no_interesado:false,periodo:"Nuevo",notas:""}));
     }
   });
   save();
 }
 
-function save(){
-  try{localStorage.setItem("pdg_panel_v3",JSON.stringify(data))}catch(e){}
-  updateStats();
-}
+function save(){try{localStorage.setItem("pdg_panel_v4",JSON.stringify(data));}catch(e){} updateStats();}
 
-function setSyncStatus(type,msg){
-  const el=document.getElementById("syncStatus");
-  el.className="sync-status sync-"+type;
-  el.innerHTML=type==="loading"?`<span class="spinner"></span> ${msg}`:msg;
-}
+function setSyncStatus(t,m){const el=document.getElementById("syncStatus");el.className="sync-status sync-"+t;el.innerHTML=t==="loading"?`<span class="spinner"></span> ${m}`:m;}
 
 async function loadData(){
   setSyncStatus("loading","Actualizando...");
@@ -876,50 +491,37 @@ async function loadData(){
     const res=await fetch(SCRIPT_URL+"?action=getData");
     const json=await res.json();
     if(json.ok){
-      const remoto=json.data||{};
+      const rem=json.data||{};
       Object.keys(ALCALDES_INICIALES).forEach(c=>{
-        if(!remoto[c]){
-          remoto[c]={alcalde:{...ALCALDES_INICIALES[c],pdg:false},candidatos_alcalde:[],concejales:[],candidatos_concejal:[]};
-          if(CONCEJALES_INICIALES[c]) remoto[c].concejales=CONCEJALES_INICIALES[c].map(p=>({...p,contactado:false,pdg:false,interesado:false}));
-        } else {
-          if(!remoto[c].alcalde||!remoto[c].alcalde.nombre) remoto[c].alcalde={...ALCALDES_INICIALES[c],pdg:false};
-          if((!remoto[c].concejales||remoto[c].concejales.length===0)&&CONCEJALES_INICIALES[c])
-            remoto[c].concejales=CONCEJALES_INICIALES[c].map(p=>({...p,contactado:false,pdg:false,interesado:false}));
+        if(!rem[c]){rem[c]={alcalde:{...ALCALDES_INICIALES[c],pdg:false,votos:0,periodo:"",notas:""},candidatos_alcalde:[],concejales:[],candidatos_concejal:[]};
+          if(CONCEJALES_INICIALES[c]) rem[c].concejales=CONCEJALES_INICIALES[c].map(p=>({...p,contactado:false,pdg:false,interesado:false,no_interesado:false,periodo:"Nuevo",notas:""}));
         }
       });
-      data=remoto;
-      setSyncStatus("ok","✓ Sincronizado");
-      renderBoard();updateStats();
+      data=rem; setSyncStatus("ok","✓ Sincronizado"); renderBoard(); updateStats();
     } else throw new Error();
-  } catch(e){
-    setSyncStatus("err","⚠ Modo local");
-    initData();renderBoard();
-  }
+  }catch(e){setSyncStatus("err","⚠ Modo local"); initData(); renderBoard();}
 }
 
 async function saveComuna(c){
-  localStorage.setItem("pdg_panel_v3",JSON.stringify(data));
-  setSyncStatus("loading","Guardando...");
+  save();setSyncStatus("loading","Guardando...");
   try{
     const res=await fetch(SCRIPT_URL,{method:"POST",body:JSON.stringify({action:"updateComuna",comuna:c,comunaData:data[c]})});
-    const json=await res.json();
-    if(json.ok) setSyncStatus("ok","✓ Guardado");
-    else throw new Error();
-  }catch(e){ setSyncStatus("err","⚠ Guardado local"); }
+    const j=await res.json();
+    if(j.ok) setSyncStatus("ok","✓ Guardado"); else throw new Error();
+  }catch(e){setSyncStatus("err","⚠ Guardado local");}
 }
-
-function isEditor(){ return currentRole === "editor"; }
 
 function toggle(c,list,idx,field){
   if(!isEditor()) return;
-  if(data[c]&&data[c][list][idx]) data[c][list][idx][field]=!data[c][list][idx][field];
-  renderBoard();saveComuna(c);
+  const p=data[c]&&data[c][list][idx];
+  if(!p) return;
+  // No interesado e interesado son mutuamente excluyentes
+  if(field==="no_interesado"&&!p.no_interesado) p.interesado=false;
+  if(field==="interesado"&&!p.interesado) p.no_interesado=false;
+  p[field]=!p[field];
+  renderBoard(); saveComuna(c);
 }
-function toggleAlcaldePDG(c){
-  if(!isEditor()) return;
-  if(data[c]) data[c].alcalde.pdg=!data[c].alcalde.pdg;
-  renderBoard();saveComuna(c);
-}
+function toggleAlcaldePDG(c){if(!isEditor())return;if(data[c])data[c].alcalde.pdg=!data[c].alcalde.pdg;renderBoard();saveComuna(c);}
 
 function openModal(c,type,idx){
   if(!isEditor()){showToast("Acceso solo lectura");return;}
@@ -928,16 +530,15 @@ function openModal(c,type,idx){
   document.getElementById("modalComuna").value=c;
   document.getElementById("modalType").value=type;
   document.getElementById("modalEditIdx").value=idx;
-  document.getElementById("modalName").value="";
-  document.getElementById("modalPartido").value="";
   const labels={candidatos_alcalde:"candidato/a a alcalde",concejales:"concejal/a electo/a",candidatos_concejal:"candidato/a a concejal"};
-  if(idx>=0&&data[c]&&data[c][type][idx]){
-    document.getElementById("modalName").value=data[c][type][idx].nombre||"";
-    document.getElementById("modalPartido").value=data[c][type][idx].partido||"";
-    document.getElementById("modalTitle").textContent="Editar "+(labels[type]||"persona");
-  } else {
-    document.getElementById("modalTitle").textContent="Agregar "+(labels[type]||"persona");
-  }
+  let p={nombre:"",partido:"",votos:"",periodo:"",notas:""};
+  if(idx>=0&&data[c]&&data[c][type][idx]) p=data[c][type][idx];
+  document.getElementById("modalTitle").textContent=(idx>=0?"Editar ":"Agregar ")+(labels[type]||"persona");
+  document.getElementById("modalName").value=p.nombre||"";
+  document.getElementById("modalPartido").value=p.partido||"";
+  document.getElementById("modalVotos").value=p.votos||"";
+  document.getElementById("modalPeriodo").value=p.periodo||"";
+  document.getElementById("modalNotas").value=p.notas||"";
   setTimeout(()=>document.getElementById("modalName").focus(),100);
 }
 function closeModal(){document.getElementById("modalBg").classList.remove("open");}
@@ -948,11 +549,17 @@ function saveModal(){
   const idx=parseInt(document.getElementById("modalEditIdx").value);
   const nombre=document.getElementById("modalName").value.trim();
   const partido=document.getElementById("modalPartido").value.trim();
-  if(!nombre)return;
-  if(!data[c])data[c]={alcalde:{nombre:"",partido:"",pdg:false},candidatos_alcalde:[],concejales:[],candidatos_concejal:[]};
-  if(idx>=0&&data[c][type][idx]){data[c][type][idx].nombre=nombre;data[c][type][idx].partido=partido;}
-  else data[c][type].push({nombre,partido,contactado:false,pdg:false,interesado:false});
-  closeModal();renderBoard();saveComuna(c);showToast("Guardado ✓");
+  const votos=parseInt(document.getElementById("modalVotos").value)||0;
+  const periodo=document.getElementById("modalPeriodo").value;
+  const notas=document.getElementById("modalNotas").value.trim();
+  if(!nombre) return;
+  if(!data[c]) data[c]={alcalde:{nombre:"",partido:"",pdg:false,votos:0,periodo:"",notas:""},candidatos_alcalde:[],concejales:[],candidatos_concejal:[]};
+  if(idx>=0&&data[c][type][idx]){
+    Object.assign(data[c][type][idx],{nombre,partido,votos,periodo,notas});
+  } else {
+    data[c][type].push({nombre,partido,votos,periodo,notas,contactado:false,pdg:false,interesado:false,no_interesado:false});
+  }
+  closeModal(); renderBoard(); saveComuna(c); showToast("Guardado ✓");
 }
 
 function openAlcaldeModal(c){
@@ -960,78 +567,88 @@ function openAlcaldeModal(c){
   document.getElementById("alcaldeBg").classList.add("open");
   document.getElementById("alcaldeComuna").value=c;
   document.getElementById("alcaldeTitle").textContent="Editar alcalde/sa · "+c;
-  document.getElementById("alcaldeNombre").value=data[c]?data[c].alcalde.nombre:"";
-  document.getElementById("alcaldePartido").value=data[c]?data[c].alcalde.partido:"";
+  const a=data[c]?data[c].alcalde:{nombre:"",partido:"",votos:0,periodo:"",notas:""};
+  document.getElementById("alcaldeNombre").value=a.nombre||"";
+  document.getElementById("alcaldePartido").value=a.partido||"";
+  document.getElementById("alcaldeVotos").value=a.votos||"";
+  document.getElementById("alcaldePeriodo").value=a.periodo||"";
+  document.getElementById("alcaldeNotas").value=a.notas||"";
   setTimeout(()=>document.getElementById("alcaldeNombre").focus(),100);
 }
 function saveAlcalde(){
   const c=document.getElementById("alcaldeComuna").value;
-  const n=document.getElementById("alcaldeNombre").value.trim();
-  const p=document.getElementById("alcaldePartido").value.trim();
-  if(!data[c])data[c]={alcalde:{nombre:"",partido:"",pdg:false},candidatos_alcalde:[],concejales:[],candidatos_concejal:[]};
-  data[c].alcalde.nombre=n;data[c].alcalde.partido=p;
+  if(!data[c]) data[c]={alcalde:{nombre:"",partido:"",pdg:false,votos:0,periodo:"",notas:""},candidatos_alcalde:[],concejales:[],candidatos_concejal:[]};
+  Object.assign(data[c].alcalde,{
+    nombre:document.getElementById("alcaldeNombre").value.trim(),
+    partido:document.getElementById("alcaldePartido").value.trim(),
+    votos:parseInt(document.getElementById("alcaldeVotos").value)||0,
+    periodo:document.getElementById("alcaldePeriodo").value,
+    notas:document.getElementById("alcaldeNotas").value.trim()
+  });
   document.getElementById("alcaldeBg").classList.remove("open");
-  renderBoard();saveComuna(c);showToast("Alcalde actualizado ✓");
+  renderBoard(); saveComuna(c); showToast("Alcalde actualizado ✓");
 }
 
 function deletePerson(c,type,idx){
   if(!isEditor()) return;
-  if(confirm("¿Eliminar?")) data[c][type].splice(idx,1);
-  renderBoard();saveComuna(c);
+  if(confirm("¿Eliminar esta persona?")) data[c][type].splice(idx,1);
+  renderBoard(); saveComuna(c);
 }
 
-function showToast(msg){
-  const t=document.getElementById("toast");
-  t.textContent=msg;t.classList.add("show");
-  setTimeout(()=>t.classList.remove("show"),2500);
-}
+function showToast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2500);}
+
+function fmtVotos(v){if(!v||v===0)return "";return parseInt(v).toLocaleString("es-CL")+" v";}
 
 function updateStats(){
-  let totalP=0,totalC=0,totalPDG=0,totalI=0;
+  let totalP=0,totalC=0,totalPDG=0,totalI=0,totalNI=0;
   Object.keys(data).forEach(c=>{
     const d=data[c];
     [...(d.candidatos_alcalde||[]),...(d.concejales||[]),...(d.candidatos_concejal||[])].forEach(p=>{
-      totalP++;if(p.contactado)totalC++;if(p.pdg)totalPDG++;if(p.interesado)totalI++;
+      totalP++;if(p.contactado)totalC++;if(p.pdg)totalPDG++;if(p.interesado)totalI++;if(p.no_interesado)totalNI++;
     });
   });
   const pct=totalP>0?Math.round(totalC/totalP*100):0;
   document.getElementById("statsRow").innerHTML=`
-    <div class="stat-card"><div class="lbl">Comunas RM</div><div class="num" style="color:#534AB7">52</div></div>
-    <div class="stat-card"><div class="lbl">Personas registradas</div><div class="num" style="color:#534AB7">${totalP}</div></div>
-    <div class="stat-card"><div class="lbl">Contactados</div><div class="num" style="color:#1D9E75">${totalC} <span style="font-size:14px;color:#aaa">${pct}%</span></div><div class="progress-bar"><div class="progress-fill" style="width:${pct}%;background:#1D9E75"></div></div></div>
-    <div class="stat-card"><div class="lbl">PDG / Interesados</div><div class="num" style="color:#534AB7">${totalPDG} <span style="font-size:16px;color:#aaa">/</span> <span style="color:#EF9F27">${totalI}</span></div></div>
+    <div class="stat-card"><div class="lbl">Comunas RM</div><div class="num" style="color:#1a1560">52</div></div>
+    <div class="stat-card"><div class="lbl">Personas registradas</div><div class="num" style="color:#1a1560">${totalP}</div></div>
+    <div class="stat-card"><div class="lbl">Contactados</div><div class="num" style="color:#1D9E75">${totalC} <span style="font-size:13px;color:#aaa">${pct}%</span></div><div class="progress-bar"><div class="progress-fill" style="width:${pct}%;background:#1D9E75"></div></div></div>
+    <div class="stat-card"><div class="lbl">PDG / Interesados</div><div class="num" style="color:#534AB7">${totalPDG} <span style="color:#aaa;font-size:14px">/</span> <span style="color:#EF9F27">${totalI}</span></div></div>
+    <div class="stat-card"><div class="lbl">No interesados</div><div class="num" style="color:#E24B4A">${totalNI}</div></div>
   `;
 }
 
 function toggleCard(id,header){
-  const body=document.getElementById(id);
-  const chev=header.querySelector(".chevron");
-  if(!body)return;
-  body.classList.toggle("open");chev.classList.toggle("open");
+  const body=document.getElementById(id);const chev=header.querySelector(".chevron");
+  if(!body)return;body.classList.toggle("open");chev.classList.toggle("open");
 }
 
 function mkRow(p,i,type,c){
   const ed=isEditor();
-  const clickC=ed?"clickable":"readonly";
-  return `
-    <div class="person-row">
-      <div class="person-info">
-        <div class="person-name" title="${p.nombre}">${p.nombre}</div>
-        <div class="person-role">${p.partido||'—'}</div>
-      </div>
-      <div class="checks">
-        <div class="check-wrap"><span class="check-label">Cont.</span><div class="check-box ${clickC} ${p.contactado?'chk-c':''}" ${ed?`onclick="toggle('${c}','${type}',${i},'contactado')"`:''}  title="Contactado">${p.contactado?'✓':''}</div></div>
-        <div class="check-wrap"><span class="check-label">PDG</span><div class="check-box ${clickC} ${p.pdg?'chk-p':''}" ${ed?`onclick="toggle('${c}','${type}',${i},'pdg')"`:''}  title="Es PDG">${p.pdg?'✓':''}</div></div>
-        <div class="check-wrap"><span class="check-label">Inter.</span><div class="check-box ${clickC} ${p.interesado?'chk-i':''}" ${ed?`onclick="toggle('${c}','${type}',${i},'interesado')"`:''}  title="Interesado">${p.interesado?'✓':''}</div></div>
-        ${ed?`<div class="check-box chk-del" onclick="deletePerson('${c}','${type}',${i})" title="Eliminar">✕</div>`:''}
-      </div>
-    </div>`;
+  const cls=ed?"clickable":"readonly";
+  const votos=fmtVotos(p.votos);
+  const periodo=p.periodo?`<span class="person-periodo">${p.periodo}</span>`:"";
+  const notas=p.notas?`<span style="color:#bbb;font-size:10px;font-style:italic">${p.notas}</span>`:"";
+  return `<div class="person-row">
+    <div class="person-info">
+      <div class="person-name" title="${p.nombre}">${p.nombre}</div>
+      <div class="person-meta">${p.partido||'—'} ${votos?`<span class="person-votos">${votos}</span>`:""} ${periodo} ${notas}</div>
+    </div>
+    <div class="checks">
+      <div class="check-wrap"><span class="check-label">Cont.</span><div class="check-box ${cls} ${p.contactado?'chk-c':''}" ${ed?`onclick="toggle('${c}','${type}',${i},'contactado')"`:''} title="Contactado">${p.contactado?'✓':''}</div></div>
+      <div class="check-wrap"><span class="check-label">PDG</span><div class="check-box ${cls} ${p.pdg?'chk-p':''}" ${ed?`onclick="toggle('${c}','${type}',${i},'pdg')"`:''} title="Es PDG">${p.pdg?'✓':''}</div></div>
+      <div class="check-wrap"><span class="check-label">Inter.</span><div class="check-box ${cls} ${p.interesado?'chk-i':''}" ${ed?`onclick="toggle('${c}','${type}',${i},'interesado')"`:''} title="Interesado">${p.interesado?'✓':''}</div></div>
+      <div class="check-wrap"><span class="check-label">No int.</span><div class="check-box ${cls} ${p.no_interesado?'chk-n':''}" ${ed?`onclick="toggle('${c}','${type}',${i},'no_interesado')"`:''} title="No interesado">${p.no_interesado?'✕':''}</div></div>
+      ${ed?`<div class="check-box chk-edit" onclick="openModal('${c}','${type}',${i})" title="Editar">✎</div>`:''}
+      ${ed?`<div class="check-box chk-del" onclick="deletePerson('${c}','${type}',${i})" title="Eliminar">✕</div>`:''}
+    </div>
+  </div>`;
 }
 
 function renderBoard(){
   const fd=document.getElementById("filterDist").value;
   const search=document.getElementById("searchInput").value.toLowerCase();
   const status=document.getElementById("filterStatus").value;
+  const periodo=document.getElementById("filterPeriodo").value;
   const grouped={};
   Object.keys(DIST_MAP).forEach(c=>{
     const dist=DIST_MAP[c];
@@ -1046,10 +663,11 @@ function renderBoard(){
     if(status==="contactados"&&!allP.some(p=>p.contactado))return;
     if(status==="pdg"&&!allP.some(p=>p.pdg))return;
     if(status==="interesados"&&!allP.some(p=>p.interesado))return;
+    if(status==="nointeresados"&&!allP.some(p=>p.no_interesado))return;
+    if(periodo&&!allP.some(p=>p.periodo===periodo))return;
     if(!grouped[dist])grouped[dist]=[];
     grouped[dist].push(c);
   });
-
   const board=document.getElementById("board");
   board.innerHTML="";
   const distKeys=Object.keys(grouped).sort();
@@ -1064,13 +682,15 @@ function renderBoard(){
     const list=col.querySelector(`#list_${dk}`);
 
     comunas.forEach(c=>{
-      const d=data[c]||{alcalde:{nombre:"",partido:"",pdg:false},candidatos_alcalde:[],concejales:[],candidatos_concejal:[]};
+      const d=data[c]||{alcalde:{nombre:"",partido:"",pdg:false,votos:0,periodo:"",notas:""},candidatos_alcalde:[],concejales:[],candidatos_concejal:[]};
       const allP=[...(d.candidatos_alcalde||[]),...(d.concejales||[]),...(d.candidatos_concejal||[])];
       const contactC=allP.filter(p=>p.contactado).length;
       const pdgC=allP.filter(p=>p.pdg).length;
       const sid="b"+c.replace(/[^a-zA-Z0-9]/g,"_");
       const alcNombre=d.alcalde&&d.alcalde.nombre?d.alcalde.nombre:"Sin registrar";
       const alcPDG=d.alcalde&&d.alcalde.pdg;
+      const alcVotos=fmtVotos(d.alcalde&&d.alcalde.votos);
+      const alcPeriodo=d.alcalde&&d.alcalde.periodo?`<span class="person-periodo">${d.alcalde.periodo}</span>`:"";
 
       const card=document.createElement("div");card.className="comuna-card";
       card.innerHTML=`
@@ -1092,12 +712,16 @@ function renderBoard(){
               <div class="alcalde-avatar">${alcNombre.split(" ").slice(0,2).map(x=>x[0]||"").join("").toUpperCase()}</div>
               <div class="alcalde-info">
                 <div class="alcalde-name">${alcNombre}</div>
-                <div class="alcalde-partido">${d.alcalde&&d.alcalde.partido||'Partido no registrado'}</div>
+                <div class="alcalde-meta">
+                  ${d.alcalde&&d.alcalde.partido||'Partido no registrado'}
+                  ${alcVotos?`<span class="person-votos">${alcVotos}</span>`:""}
+                  ${alcPeriodo}
+                  ${d.alcalde&&d.alcalde.notas?`<span style="font-style:italic;color:#bbb">${d.alcalde.notas}</span>`:""}
+                </div>
               </div>
               <div class="checks">
-                <div class="check-wrap">
-                  <span class="check-label">PDG</span>
-                  <div class="check-box ${ed?'clickable':'readonly'} ${alcPDG?'chk-p':''}" ${ed?`onclick="toggleAlcaldePDG('${c}')"`:''}  title="¿Es PDG?">${alcPDG?'✓':''}</div>
+                <div class="check-wrap"><span class="check-label">PDG</span>
+                  <div class="check-box ${ed?'clickable':'readonly'} ${alcPDG?'chk-p':''}" ${ed?`onclick="toggleAlcaldePDG('${c}')"`:''} title="¿Es PDG?">${alcPDG?'✓':''}</div>
                 </div>
               </div>
             </div>
@@ -1114,7 +738,7 @@ function renderBoard(){
             <div class="section-title"><span>➕ Candidatos/as a concejal</span>${ed?`<button class="add-btn" onclick="openModal('${c}','candidatos_concejal')">+ agregar</button>`:''}</div>
             ${(d.candidatos_concejal||[]).map((p,i)=>mkRow(p,i,'candidatos_concejal',c)).join("")||`<div class="empty-note">Sin candidatos a concejal</div>`}
           </div>
-          ${!ed?`<div class="readonly-note">👁 Modo solo lectura</div>`:''}
+          ${!ed?`<div class="readonly-note">👁 Modo solo lectura — contacta al administrador para hacer cambios</div>`:''}
         </div>`;
       list.appendChild(card);
     });
@@ -1124,14 +748,14 @@ function renderBoard(){
 
 document.addEventListener("keydown",e=>{
   if(e.key==="Enter"){
-    if(document.getElementById("loginScreen").style.display!=="none"||!currentRole) doLogin();
+    if(!currentRole) doLogin();
     else if(document.getElementById("modalBg").classList.contains("open")) saveModal();
     else if(document.getElementById("alcaldeBg").classList.contains("open")) saveAlcalde();
   }
   if(e.key==="Escape"){closeModal();document.getElementById("alcaldeBg").classList.remove("open");}
 });
 
-setInterval(()=>{ if(currentRole) loadData(); },60000);
+setInterval(()=>{if(currentRole) loadData();},60000);
 initData();
 </script>
 </body>
