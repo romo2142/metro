@@ -485,7 +485,7 @@ const DIST_NAMES={D8:"Distrito 8",D9:"Distrito 9",D10:"Distrito 10",D11:"Distrit
 let data={};
 
 function initData(){
-  const saved=localStorage.getItem("pdg_panel_v4");
+  const saved=localStorage.getItem("pdg_panel_v5");
   if(saved){try{data=JSON.parse(saved);}catch(e){}}
   Object.keys(ALCALDES_INICIALES).forEach(c=>{
     if(!data[c]) data[c]={alcalde:{...ALCALDES_INICIALES[c],pdg:false,votos:0,periodo:"",notas:""},candidatos_alcalde:[],concejales:[],candidatos_concejal:[]};
@@ -499,7 +499,7 @@ function initData(){
   save();
 }
 
-function save(){try{localStorage.setItem("pdg_panel_v4",JSON.stringify(data));}catch(e){} updateStats();}
+function save(){try{localStorage.setItem("pdg_panel_v5",JSON.stringify(data));}catch(e){} updateStats();}
 
 function setSyncStatus(t,m){const el=document.getElementById("syncStatus");el.className="sync-status sync-"+t;el.innerHTML=t==="loading"?`<span class="spinner"></span> ${m}`:m;}
 
