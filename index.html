@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -124,18 +123,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .alcalde-name{font-size:12px;font-weight:600;color:#1a1a2e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .alcalde-meta{font-size:10px;color:#aaa;display:flex;gap:6px;margin-top:1px;flex-wrap:wrap}
 .empty-note{font-size:11px;color:#bbb;padding:5px 0;font-style:italic}
-
-/* IVE BADGES */
-.ive-row{display:flex;gap:6px;flex-wrap:wrap;padding:6px 10px;background:#f9f8ff;border-top:1px solid #eee;align-items:center}
-.ive-badge{display:flex;flex-direction:column;align-items:center;background:#fff;border-radius:7px;padding:4px 8px;border:1px solid #e8e6f8;min-width:52px}
-.ive-badge-label{font-size:9px;color:#aaa;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap}
-.ive-badge-val{font-size:13px;font-weight:700;margin-top:1px}
-.ive-high{color:#0F6E56}
-.ive-mid{color:#854F0B}
-.ive-low{color:#A32D2D}
-.ive-votos{color:#1a1560}
-.ive-title{font-size:10px;color:#aaa;font-weight:600;white-space:nowrap;margin-right:2px}
-
 .readonly-note{font-size:10px;color:#aaa;background:#f9f8ff;border-radius:6px;padding:4px 8px;margin-top:8px;text-align:center;border:1px dashed #e0deff}
 
 /* MODAL */
@@ -229,12 +216,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <option value="3er periodo">3er periodo</option>
       <option value="4to periodo">4to periodo</option>
       <option value="Nuevo">Nuevo electo</option>
-    </select>
-    <select id="filterIVE" onchange="renderBoard()">
-      <option value="">IVE Alcaldía: todos</option>
-      <option value="80">IVE ≥ 80 (Alto)</option>
-      <option value="60">IVE ≥ 60 (Medio)</option>
-      <option value="0">IVE < 60 (Bajo)</option>
     </select>
   </div>
 
@@ -627,15 +608,12 @@ function updateStats(){
     });
   });
   const pct=totalP>0?Math.round(totalC/totalP*100):0;
-  // Calcular comunas IVE alto
-  const comunasAlto=Object.keys(IVE_DATA).filter(c=>IVE_DATA[c].ive_alc>=80).length;
-  const totalVotesPres=Object.values(IVE_DATA).reduce((a,v)=>a+v.pres,0);
   document.getElementById("statsRow").innerHTML=`
     <div class="stat-card"><div class="lbl">Comunas RM</div><div class="num" style="color:#1a1560">52</div></div>
     <div class="stat-card"><div class="lbl">Personas registradas</div><div class="num" style="color:#1a1560">${totalP}</div></div>
     <div class="stat-card"><div class="lbl">Contactados</div><div class="num" style="color:#1D9E75">${totalC} <span style="font-size:13px;color:#aaa">${pct}%</span></div><div class="progress-bar"><div class="progress-fill" style="width:${pct}%;background:#1D9E75"></div></div></div>
-    <div class="stat-card"><div class="lbl">Comunas IVE alto (≥80)</div><div class="num" style="color:#0F6E56">${comunasAlto}</div></div>
-    <div class="stat-card"><div class="lbl">Votos PDG Pres. 2025 RM</div><div class="num" style="color:#1a1560;font-size:16px">${totalVotesPres.toLocaleString('es-CL')}</div></div>
+    <div class="stat-card"><div class="lbl">PDG / Interesados</div><div class="num" style="color:#534AB7">${totalPDG} <span style="color:#aaa;font-size:14px">/</span> <span style="color:#EF9F27">${totalI}</span></div></div>
+    <div class="stat-card"><div class="lbl">No interesados</div><div class="num" style="color:#E24B4A">${totalNI}</div></div>
   `;
 }
 
@@ -687,14 +665,6 @@ function renderBoard(){
     if(status==="interesados"&&!allP.some(p=>p.interesado))return;
     if(status==="nointeresados"&&!allP.some(p=>p.no_interesado))return;
     if(periodo&&!allP.some(p=>p.periodo===periodo))return;
-    const iveMin=document.getElementById("filterIVE").value;
-    if(iveMin!==""){
-      const iv=IVE_DATA[c];
-      if(!iv) return;
-      const min=parseInt(iveMin);
-      if(min===0){ if(iv.ive_alc>=60) return; }
-      else { if(iv.ive_alc<min) return; }
-    }
     if(!grouped[dist])grouped[dist]=[];
     grouped[dist].push(c);
   });
@@ -725,23 +695,13 @@ function renderBoard(){
       const card=document.createElement("div");card.className="comuna-card";
       card.innerHTML=`
         <div class="comuna-header" onclick="toggleCard('${sid}',this)">
-          <div style="display:flex;align-items:center;justify-content:space-between;width:100%;gap:6px">
-            <span class="comuna-name">${c}</span>
-            <div class="comuna-meta">
-              ${allP.length>0?`<span class="tag tag-count">${contactC}/${allP.length}</span>`:''}
-              ${pdgC>0?`<span class="tag tag-pdg">PDG:${pdgC}</span>`:''}
-              <span class="chevron">›</span>
-            </div>
+          <span class="comuna-name">${c}</span>
+          <div class="comuna-meta">
+            ${allP.length>0?`<span class="tag tag-count">${contactC}/${allP.length}</span>`:''}
+            ${pdgC>0?`<span class="tag tag-pdg">PDG:${pdgC}</span>`:''}
+            <span class="chevron">›</span>
           </div>
         </div>
-        ${(()=>{ const iv=IVE_DATA[c]; if(!iv) return ''; const ca=iv.ive_alc>=80?'ive-high':iv.ive_alc>=60?'ive-mid':'ive-low'; const cc=iv.ive_conc>=80?'ive-high':iv.ive_conc>=60?'ive-mid':'ive-low'; return `<div class="ive-row">
-          <span class="ive-title">IVE</span>
-          <div class="ive-badge"><span class="ive-badge-label">Alcaldía</span><span class="ive-badge-val ${ca}">${iv.ive_alc}</span></div>
-          <div class="ive-badge"><span class="ive-badge-label">Concejal</span><span class="ive-badge-val ${cc}">${iv.ive_conc}</span></div>
-          <div class="ive-badge"><span class="ive-badge-label">Pres.2025</span><span class="ive-badge-val ive-votos">${iv.pres.toLocaleString('es-CL')}</span></div>
-          <div class="ive-badge"><span class="ive-badge-label">Dip.2025</span><span class="ive-badge-val ive-votos">${iv.dip.toLocaleString('es-CL')}</span></div>
-          ${iv.conc>0?`<div class="ive-badge"><span class="ive-badge-label">Conc.2024</span><span class="ive-badge-val ive-votos">${iv.conc.toLocaleString('es-CL')}</span></div>`:''}
-        </div>`; })()}
         <div class="comuna-body" id="${sid}">
           <div style="margin-top:10px">
             <div class="section-title">
